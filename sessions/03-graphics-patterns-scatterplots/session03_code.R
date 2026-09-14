@@ -31,7 +31,7 @@ aus_production |>
   
   # Scale the x axis adequately
   # scale_x_yearquarter used because the index is a yearquarter column
-  scale_x_yearquarter(date_breaks = "1 year",
+  scale_x_yearquarter(date_breaks = "1 year", #date breaks and minor breaks influence how the graph is seen
                       minor_breaks = "1 year") +
   
   # Flip x-labels by 90 degrees
@@ -394,3 +394,4 @@ a10 |>
 # ---- cell 54 ----
 head(vic_elec)
 tail(vic_elec)
+
