@@ -2349,33 +2349,33 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#ses-exercise" id="toc-ses-exercise" class="nav-link active" data-scroll-target="#ses-exercise">SES Exercise</a>
+  <li><a href="#exercise" id="toc-exercise" class="nav-link active" data-scroll-target="#exercise">SES exercise</a>
   <ul>
-  <li><a href="#argentinas-exports" id="toc-argentinas-exports" class="nav-link" data-scroll-target="#argentinas-exports">1. Argentina’s exports</a>
+  <li><a href="#timeplot" id="toc-timeplot" class="nav-link" data-scroll-target="#timeplot">1. Argentina’s exports</a>
   <ul>
   <li><a href="#well-discuss-potential-solutions-during-the-live-session." id="toc-well-discuss-potential-solutions-during-the-live-session." class="nav-link" data-scroll-target="#well-discuss-potential-solutions-during-the-live-session.">We’ll discuss potential solutions during the live session.</a></li>
   </ul></li>
-  <li><a href="#fitting-the-model" id="toc-fitting-the-model" class="nav-link" data-scroll-target="#fitting-the-model">2. Fitting the model</a>
+  <li><a href="#fit" id="toc-fit" class="nav-link" data-scroll-target="#fit">2. Fitting the model</a>
   <ul>
   <li><a href="#well-discuss-potential-solutions-during-the-live-session.-1" id="toc-well-discuss-potential-solutions-during-the-live-session.-1" class="nav-link" data-scroll-target="#well-discuss-potential-solutions-during-the-live-session.-1">We’ll discuss potential solutions during the live session.</a></li>
-  <li><a href="#is-the-ets-forecast-method-appropriate-for-this-data-why-or-why-not" id="toc-is-the-ets-forecast-method-appropriate-for-this-data-why-or-why-not" class="nav-link" data-scroll-target="#is-the-ets-forecast-method-appropriate-for-this-data-why-or-why-not">Is the ETS forecast method appropriate for this data? Why, or why not?</a>
+  <li><a href="#is-simple-exponential-smoothing-appropriate-for-this-data-why-or-why-not" id="toc-is-simple-exponential-smoothing-appropriate-for-this-data-why-or-why-not" class="nav-link" data-scroll-target="#is-simple-exponential-smoothing-appropriate-for-this-data-why-or-why-not">Is simple exponential smoothing appropriate for this data? Why, or why not?</a>
   <ul>
   <li><a href="#well-discuss-potential-solutions-during-the-live-session.-2" id="toc-well-discuss-potential-solutions-during-the-live-session.-2" class="nav-link" data-scroll-target="#well-discuss-potential-solutions-during-the-live-session.-2">We’ll discuss potential solutions during the live session.</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#model-parameters" id="toc-model-parameters" class="nav-link" data-scroll-target="#model-parameters">3. Model parameters</a>
+  <li><a href="#parameters" id="toc-parameters" class="nav-link" data-scroll-target="#parameters">3. Model parameters</a>
   <ul>
   <li><a href="#well-discuss-potential-solutions-during-the-live-session.-3" id="toc-well-discuss-potential-solutions-during-the-live-session.-3" class="nav-link" data-scroll-target="#well-discuss-potential-solutions-during-the-live-session.-3">We’ll discuss potential solutions during the live session.</a></li>
   </ul></li>
-  <li><a href="#standard-deviation-of-the-residuals" id="toc-standard-deviation-of-the-residuals" class="nav-link" data-scroll-target="#standard-deviation-of-the-residuals">4. Standard deviation of the residuals</a>
+  <li><a href="#sigma" id="toc-sigma" class="nav-link" data-scroll-target="#sigma">4. Standard deviation of the residuals</a>
   <ul>
   <li><a href="#well-discuss-potential-solutions-during-the-live-session.-4" id="toc-well-discuss-potential-solutions-during-the-live-session.-4" class="nav-link" data-scroll-target="#well-discuss-potential-solutions-during-the-live-session.-4">We’ll discuss potential solutions during the live session.</a></li>
   </ul></li>
-  <li><a href="#prediction-interval" id="toc-prediction-interval" class="nav-link" data-scroll-target="#prediction-interval">5. 95% prediction interval</a>
+  <li><a href="#interval" id="toc-interval" class="nav-link" data-scroll-target="#interval">5. 95% prediction interval</a>
   <ul>
   <li><a href="#well-discuss-potential-solutions-during-the-live-session.-5" id="toc-well-discuss-potential-solutions-during-the-live-session.-5" class="nav-link" data-scroll-target="#well-discuss-potential-solutions-during-the-live-session.-5">We’ll discuss potential solutions during the live session.</a></li>
   </ul></li>
-  <li><a href="#comparing-prediction-intervals" id="toc-comparing-prediction-intervals" class="nav-link" data-scroll-target="#comparing-prediction-intervals">6. Comparing prediction intervals</a>
+  <li><a href="#compare" id="toc-compare" class="nav-link" data-scroll-target="#compare">6. Comparing prediction intervals</a>
   <ul>
   <li><a href="#well-discuss-potential-solutions-during-the-live-session.-6" id="toc-well-discuss-potential-solutions-during-the-live-session.-6" class="nav-link" data-scroll-target="#well-discuss-potential-solutions-during-the-live-session.-6">We’ll discuss potential solutions during the live session.</a></li>
   </ul></li>
@@ -2409,11 +2409,11 @@ window.Quarto = {
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fpp3)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<section id="ses-exercise" class="level1">
-<h1>SES Exercise</h1>
-<section id="argentinas-exports" class="level3">
-<h3 class="anchored" data-anchor-id="argentinas-exports">1. Argentina’s exports</h3>
-<p>Select the data corresponding to Argentina from the dataset <code>global_economy</code>. We will focus on its exports, so extract that column as well. Produce a time plot of exports with major ticks every ten years and minor ticks every five years.</p>
+<section id="exercise" class="level1">
+<h1>SES exercise</h1>
+<section id="timeplot" class="level3">
+<h3 class="anchored" data-anchor-id="timeplot">1. Argentina’s exports</h3>
+<p>Select the rows for Argentina from the dataset <code>global_economy</code>, keeping the exports column. Produce a time plot of exports with major ticks every ten years and minor ticks every five years.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>arg_exports <span class="ot">&lt;-</span> global_economy <span class="sc">|&gt;</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">filter</span>(Country <span class="sc">==</span> <span class="st">&quot;Argentina&quot;</span>) <span class="sc">|&gt;</span></span>
@@ -2441,28 +2441,28 @@ window.Quarto = {
 <h4 class="anchored" data-anchor-id="well-discuss-potential-solutions-during-the-live-session.">We’ll discuss potential solutions during the live session.</h4>
 </section>
 </section>
-<section id="fitting-the-model" class="level3">
-<h3 class="anchored" data-anchor-id="fitting-the-model">2. Fitting the model</h3>
-<p>Fit a simple exponential smoothing method <code>ETS(A,N,N)</code> to the series. Plot the forecast along with the fitted values.</p>
+<section id="fit" class="level3">
+<h3 class="anchored" data-anchor-id="fit">2. Fitting the model</h3>
+<p>Fit simple exponential smoothing, <code>ETS(A,N,N)</code>, to the series. Plot the forecasts together with the fitted values.</p>
 <section id="well-discuss-potential-solutions-during-the-live-session.-1" class="level4">
 <h4 class="anchored" data-anchor-id="well-discuss-potential-solutions-during-the-live-session.-1">We’ll discuss potential solutions during the live session.</h4>
 </section>
-<section id="is-the-ets-forecast-method-appropriate-for-this-data-why-or-why-not" class="level4">
-<h4 class="anchored" data-anchor-id="is-the-ets-forecast-method-appropriate-for-this-data-why-or-why-not">Is the ETS forecast method appropriate for this data? Why, or why not?</h4>
+<section id="is-simple-exponential-smoothing-appropriate-for-this-data-why-or-why-not" class="level4">
+<h4 class="anchored" data-anchor-id="is-simple-exponential-smoothing-appropriate-for-this-data-why-or-why-not">Is simple exponential smoothing appropriate for this data? Why, or why not?</h4>
 <section id="well-discuss-potential-solutions-during-the-live-session.-2" class="level5">
 <h5 class="anchored" data-anchor-id="well-discuss-potential-solutions-during-the-live-session.-2">We’ll discuss potential solutions during the live session.</h5>
 </section>
 </section>
 </section>
-<section id="model-parameters" class="level3">
-<h3 class="anchored" data-anchor-id="model-parameters">3. Model parameters</h3>
-<p>How many parameters does the model have? Extract their values, and interpret the value of the parameter alpha.</p>
+<section id="parameters" class="level3">
+<h3 class="anchored" data-anchor-id="parameters">3. Model parameters</h3>
+<p>How many parameters does the model have? Extract their values, and interpret the value of alpha.</p>
 <section id="well-discuss-potential-solutions-during-the-live-session.-3" class="level4">
 <h4 class="anchored" data-anchor-id="well-discuss-potential-solutions-during-the-live-session.-3">We’ll discuss potential solutions during the live session.</h4>
 </section>
 </section>
-<section id="standard-deviation-of-the-residuals" class="level3">
-<h3 class="anchored" data-anchor-id="standard-deviation-of-the-residuals">4. Standard deviation of the residuals</h3>
+<section id="sigma" class="level3">
+<h3 class="anchored" data-anchor-id="sigma">4. Standard deviation of the residuals</h3>
 <p>Compute the standard deviation of the residuals as:</p>
 <p><span class="math display">\[\begin{equation}
   \hat{\sigma} = \sqrt{\frac{1}{T-K}\sum_{t=1}^T e_t^2}
@@ -2474,16 +2474,16 @@ window.Quarto = {
 <h4 class="anchored" data-anchor-id="well-discuss-potential-solutions-during-the-live-session.-4">We’ll discuss potential solutions during the live session.</h4>
 </section>
 </section>
-<section id="prediction-interval" class="level3">
-<h3 class="anchored" data-anchor-id="prediction-interval">5. 95% prediction interval</h3>
-<p>Compute a 95% prediction interval for the first forecast using <span class="math inline">\(\hat{y} \pm 1.96s\)</span>, where s is the standard deviation of the residuals computed in the previous point. See lesson 6_2 for further guidance.</p>
+<section id="interval" class="level3">
+<h3 class="anchored" data-anchor-id="interval">5. 95% prediction interval</h3>
+<p>Compute a 95% prediction interval for the first forecast as <span class="math inline">\(\hat{y} \pm 1.96s\)</span>, where <span class="math inline">\(s\)</span> is the standard deviation of the residuals from the previous point. See notebook <code>12</code> for guidance.</p>
 <section id="well-discuss-potential-solutions-during-the-live-session.-5" class="level4">
 <h4 class="anchored" data-anchor-id="well-discuss-potential-solutions-during-the-live-session.-5">We’ll discuss potential solutions during the live session.</h4>
 </section>
 </section>
-<section id="comparing-prediction-intervals" class="level3">
-<h3 class="anchored" data-anchor-id="comparing-prediction-intervals">6. Comparing prediction intervals</h3>
-<p>Extract the prediction interval produced by R for h=1. How does your prediction interval compare to that one?</p>
+<section id="compare" class="level3">
+<h3 class="anchored" data-anchor-id="compare">6. Comparing prediction intervals</h3>
+<p>Extract the prediction interval that <code>fable</code> gives for h = 1. How does your interval compare with it?</p>
 <section id="well-discuss-potential-solutions-during-the-live-session.-6" class="level4">
 <h4 class="anchored" data-anchor-id="well-discuss-potential-solutions-during-the-live-session.-6">We’ll discuss potential solutions during the live session.</h4>
 </section>
