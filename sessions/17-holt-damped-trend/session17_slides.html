@@ -531,7 +531,7 @@ holts_components |&gt; mutate(.fitted = lag(level) + lag(slope))   <span class="
 all.equal(fitted_augment, fitted_components)                      <span class="hl"># TRUE</span>
 fit |&gt; forecast(h = 10)  <span class="dim"># 24.97, 25.34, 25.71, ...: a straight line</span></div>
     <ul class="build">
-      <li class="step"><b>The parameters are the workbook&#39;s.</b> <code>tidy()</code> prints <code>beta</code> for what the equations call &beta;*; same number.</li>
+      <li class="step"><b>The parameters are the workbook&#39;s.</b> One catch: <code>tidy()</code> prints <code>beta</code> = &alpha; &times; &beta;*, not &beta;* itself. With &alpha; almost 1, as here, the two coincide; Session 18&#39;s seasonal model is where they differ.</li>
       <li class="step"><b><code>components()</code> returns a dable:</b> the level and slope at every year, plus time 0. <code>lag(level) + lag(slope)</code> rebuilds every fitted value, and <code>all.equal()</code> confirms it.</li>
       <li class="step"><b>The forecasts are the last level plus h slopes,</b> as the forecast equation says: a straight line that never bends.</li>
     </ul>
