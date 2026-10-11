@@ -2353,41 +2353,41 @@ window.Quarto = {
   <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
   <li><a href="#time-series-cross-validation" id="toc-time-series-cross-validation" class="nav-link" data-scroll-target="#time-series-cross-validation">Time Series Cross-Validation</a>
   <ul>
-  <li><a href="#introduction-to-the-concept" id="toc-introduction-to-the-concept" class="nav-link" data-scroll-target="#introduction-to-the-concept">Introduction to the concept</a></li>
-  <li><a href="#cross-validation-in-time-series" id="toc-cross-validation-in-time-series" class="nav-link" data-scroll-target="#cross-validation-in-time-series">Cross-validation in time series</a></li>
-  <li><a href="#visualizing-the-train-test-splits" id="toc-visualizing-the-train-test-splits" class="nav-link" data-scroll-target="#visualizing-the-train-test-splits">Visualizing the train-test splits</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction to the concept</a></li>
+  <li><a href="#tscv" id="toc-tscv" class="nav-link" data-scroll-target="#tscv">Cross-validation in time series</a></li>
+  <li><a href="#splits" id="toc-splits" class="nav-link" data-scroll-target="#splits">Visualizing the train-test splits</a>
   <ul>
-  <li><a href="#example-1-one-step-ahead-forecasts" id="toc-example-1-one-step-ahead-forecasts" class="nav-link" data-scroll-target="#example-1-one-step-ahead-forecasts">Example 1: one-step ahead forecasts</a></li>
-  <li><a href="#example-2-multi-step-forecasts" id="toc-example-2-multi-step-forecasts" class="nav-link" data-scroll-target="#example-2-multi-step-forecasts">Example 2: multi-step forecasts</a></li>
-  <li><a href="#example-3-cross-validation-for-multiple-forecast-horizons" id="toc-example-3-cross-validation-for-multiple-forecast-horizons" class="nav-link" data-scroll-target="#example-3-cross-validation-for-multiple-forecast-horizons">Example 3: cross-validation for multiple forecast horizons</a>
+  <li><a href="#one-step" id="toc-one-step" class="nav-link" data-scroll-target="#one-step">Example 1: one-step-ahead forecasts</a></li>
+  <li><a href="#multi-step" id="toc-multi-step" class="nav-link" data-scroll-target="#multi-step">Example 2: multi-step forecasts</a></li>
+  <li><a href="#multi-horizon" id="toc-multi-horizon" class="nav-link" data-scroll-target="#multi-horizon">Example 3: cross-validation for several forecast horizons</a>
   <ul>
   <li><a href="#option-1-performance-of-the-different-models-for-each-forecast-horizon-separately" id="toc-option-1-performance-of-the-different-models-for-each-forecast-horizon-separately" class="nav-link" data-scroll-target="#option-1-performance-of-the-different-models-for-each-forecast-horizon-separately">Option 1: performance of the different models for each forecast horizon separately</a></li>
   <li><a href="#option-2-performance-of-the-different-models-averaged-over-all-the-forecast-horizons" id="toc-option-2-performance-of-the-different-models-averaged-over-all-the-forecast-horizons" class="nav-link" data-scroll-target="#option-2-performance-of-the-different-models-averaged-over-all-the-forecast-horizons">Option 2: performance of the different models averaged over all the forecast horizons</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#function-stretch_tsibble" id="toc-function-stretch_tsibble" class="nav-link" data-scroll-target="#function-stretch_tsibble">Function <code>stretch_tsibble()</code></a></li>
-  <li><a href="#detailed-example-of-time-series-cross-validation" id="toc-detailed-example-of-time-series-cross-validation" class="nav-link" data-scroll-target="#detailed-example-of-time-series-cross-validation">Detailed example of time series cross-validation</a>
+  <li><a href="#stretch" id="toc-stretch" class="nav-link" data-scroll-target="#stretch">The function <code>stretch_tsibble()</code></a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Detailed example of time series cross-validation</a>
   <ul>
-  <li><a href="#step-1.-create-the-set-of-training-datasets-using-stretch_tsibble" id="toc-step-1.-create-the-set-of-training-datasets-using-stretch_tsibble" class="nav-link" data-scroll-target="#step-1.-create-the-set-of-training-datasets-using-stretch_tsibble">Step 1. Create the set of training datasets using <code>stretch_tsibble()</code>:</a></li>
-  <li><a href="#step-2-fit-the-models-to-be-assessed-to-the-training-datasets-generated-before" id="toc-step-2-fit-the-models-to-be-assessed-to-the-training-datasets-generated-before" class="nav-link" data-scroll-target="#step-2-fit-the-models-to-be-assessed-to-the-training-datasets-generated-before">Step 2: fit the models to be assessed to the training datasets generated before</a></li>
-  <li><a href="#step-3-generate-forecasts" id="toc-step-3-generate-forecasts" class="nav-link" data-scroll-target="#step-3-generate-forecasts">Step 3: generate forecasts</a></li>
-  <li><a href="#step-4-generate-cross-validated-accuracy-metrics" id="toc-step-4-generate-cross-validated-accuracy-metrics" class="nav-link" data-scroll-target="#step-4-generate-cross-validated-accuracy-metrics">Step 4: generate cross-validated accuracy metrics:</a>
+  <li><a href="#step-1" id="toc-step-1" class="nav-link" data-scroll-target="#step-1">Step 1: build the training sets with <code>stretch_tsibble()</code></a></li>
+  <li><a href="#step-2" id="toc-step-2" class="nav-link" data-scroll-target="#step-2">Step 2: fit the models to each training dataset</a></li>
+  <li><a href="#step-3" id="toc-step-3" class="nav-link" data-scroll-target="#step-3">Step 3: generate forecasts</a></li>
+  <li><a href="#step-4" id="toc-step-4" class="nav-link" data-scroll-target="#step-4">Step 4: compute the cross-validated accuracy metrics</a>
   <ul>
-  <li><a href="#option-1-generate-accuracy-metrics-for-each-combination-of-model-and-forecast-horizon." id="toc-option-1-generate-accuracy-metrics-for-each-combination-of-model-and-forecast-horizon." class="nav-link" data-scroll-target="#option-1-generate-accuracy-metrics-for-each-combination-of-model-and-forecast-horizon.">4.1 Option 1: generate accuracy metrics for each combination of model and forecast horizon.</a></li>
-  <li><a href="#option-2-generate-average-accuracy-metrics-for-each-model-averaged-over-all-the-forecasting-horizons." id="toc-option-2-generate-average-accuracy-metrics-for-each-model-averaged-over-all-the-forecasting-horizons." class="nav-link" data-scroll-target="#option-2-generate-average-accuracy-metrics-for-each-model-averaged-over-all-the-forecasting-horizons.">4.2 Option 2: generate average accuracy metrics for each model averaged over all the forecasting horizons.</a></li>
+  <li><a href="#by-horizon" id="toc-by-horizon" class="nav-link" data-scroll-target="#by-horizon">4.1 Option 1: accuracy metrics for each combination of model and forecast horizon</a></li>
+  <li><a href="#averaged" id="toc-averaged" class="nav-link" data-scroll-target="#averaged">4.2 Option 2: accuracy metrics for each model, averaged over all forecast horizons</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#exercise-cross-validation" id="toc-exercise-cross-validation" class="nav-link" data-scroll-target="#exercise-cross-validation">Exercise: cross-validation</a>
+  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise">Exercise: cross-validation</a>
   <ul>
   <li><a href="#task" id="toc-task" class="nav-link" data-scroll-target="#task">Task</a></li>
-  <li><a href="#step-0.-identify-your-dataset-and-think-about-which-variables-you-need" id="toc-step-0.-identify-your-dataset-and-think-about-which-variables-you-need" class="nav-link" data-scroll-target="#step-0.-identify-your-dataset-and-think-about-which-variables-you-need">Step 0. Identify your dataset and think about which variables you need</a></li>
-  <li><a href="#step-1.-create-the-set-of-training-datasets-using-stretch_tsibble-1" id="toc-step-1.-create-the-set-of-training-datasets-using-stretch_tsibble-1" class="nav-link" data-scroll-target="#step-1.-create-the-set-of-training-datasets-using-stretch_tsibble-1">Step 1. Create the set of training datasets using <code>stretch_tsibble()</code></a></li>
-  <li><a href="#step-2-fit-the-models" id="toc-step-2-fit-the-models" class="nav-link" data-scroll-target="#step-2-fit-the-models">Step 2: Fit the models</a></li>
-  <li><a href="#step-3-generate-the-forecasts" id="toc-step-3-generate-the-forecasts" class="nav-link" data-scroll-target="#step-3-generate-the-forecasts">Step 3: generate the forecasts</a></li>
-  <li><a href="#step-4-generate-cross-validated-accuracy-metrics-1" id="toc-step-4-generate-cross-validated-accuracy-metrics-1" class="nav-link" data-scroll-target="#step-4-generate-cross-validated-accuracy-metrics-1">Step 4: generate cross-validated accuracy metrics</a>
+  <li><a href="#step-0-the-dataset-and-the-variables-it-needs" id="toc-step-0-the-dataset-and-the-variables-it-needs" class="nav-link" data-scroll-target="#step-0-the-dataset-and-the-variables-it-needs">Step 0: the dataset, and the variables it needs</a></li>
+  <li><a href="#step-1-build-the-training-sets-with-stretch_tsibble" id="toc-step-1-build-the-training-sets-with-stretch_tsibble" class="nav-link" data-scroll-target="#step-1-build-the-training-sets-with-stretch_tsibble">Step 1: build the training sets with <code>stretch_tsibble()</code></a></li>
+  <li><a href="#step-2-fit-the-four-benchmark-methods-to-every-training-set" id="toc-step-2-fit-the-four-benchmark-methods-to-every-training-set" class="nav-link" data-scroll-target="#step-2-fit-the-four-benchmark-methods-to-every-training-set">Step 2: fit the four benchmark methods to every training set</a></li>
+  <li><a href="#step-3-forecast-from-every-model-and-label-the-horizon" id="toc-step-3-forecast-from-every-model-and-label-the-horizon" class="nav-link" data-scroll-target="#step-3-forecast-from-every-model-and-label-the-horizon">Step 3: forecast from every model, and label the horizon</a></li>
+  <li><a href="#step-4-cross-validated-accuracy-by-horizon-and-averaged" id="toc-step-4-cross-validated-accuracy-by-horizon-and-averaged" class="nav-link" data-scroll-target="#step-4-cross-validated-accuracy-by-horizon-and-averaged">Step 4: cross-validated accuracy, by horizon and averaged</a>
   <ul>
-  <li><a href="#option-1-generate-accuracy-metrics-for-each-combination-of-model-and-forecast-horizon.-1" id="toc-option-1-generate-accuracy-metrics-for-each-combination-of-model-and-forecast-horizon.-1" class="nav-link" data-scroll-target="#option-1-generate-accuracy-metrics-for-each-combination-of-model-and-forecast-horizon.-1">4.1 Option 1: generate accuracy metrics for each combination of model and forecast horizon.</a></li>
-  <li><a href="#option-2-generate-average-accuracy-metrics-for-each-model-averaged-over-all-the-forecasting-horizons.-1" id="toc-option-2-generate-average-accuracy-metrics-for-each-model-averaged-over-all-the-forecasting-horizons.-1" class="nav-link" data-scroll-target="#option-2-generate-average-accuracy-metrics-for-each-model-averaged-over-all-the-forecasting-horizons.-1">4.2 Option 2: generate average accuracy metrics for each model averaged over all the forecasting horizons.</a></li>
+  <li><a href="#option-1-accuracy-metrics-for-each-combination-of-model-and-forecast-horizon" id="toc-option-1-accuracy-metrics-for-each-combination-of-model-and-forecast-horizon" class="nav-link" data-scroll-target="#option-1-accuracy-metrics-for-each-combination-of-model-and-forecast-horizon">4.1 Option 1: accuracy metrics for each combination of model and forecast horizon</a></li>
+  <li><a href="#option-2-accuracy-metrics-for-each-model-averaged-over-all-forecast-horizons" id="toc-option-2-accuracy-metrics-for-each-model-averaged-over-all-forecast-horizons" class="nav-link" data-scroll-target="#option-2-accuracy-metrics-for-each-model-averaged-over-all-forecast-horizons">4.2 Option 2: accuracy metrics for each model, averaged over all forecast horizons</a></li>
   </ul></li>
   </ul></li>
   </ul></li>
@@ -2437,35 +2437,35 @@ window.Quarto = {
 </section>
 <section id="time-series-cross-validation" class="level1">
 <h1>Time Series Cross-Validation</h1>
-<section id="introduction-to-the-concept" class="level2">
-<h2 class="anchored" data-anchor-id="introduction-to-the-concept">Introduction to the concept</h2>
-<p>Evaluating accuracy on a <strong>single test-train split</strong> yields results that are very dependent on the particular split performed.</p>
-<p>To get more statistically robust results, we may:</p>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction to the concept</h2>
+<p>Accuracy measured on a <strong>single train-test split</strong> depends heavily on where the split was made.</p>
+<p>For more reliable results, we can:</p>
 <ol type="1">
-<li>Compute error metrics on many different train-test splits.</li>
-<li>Average the results obtained for each split.</li>
+<li>Compute the error metrics on many different train-test splits.</li>
+<li>Average the results over the splits.</li>
 </ol>
-<p>This simple idea is what we refer to as <code>cross-validation</code>.</p>
+<p>This simple idea is called <strong>cross-validation</strong>.</p>
 </section>
-<section id="cross-validation-in-time-series" class="level2">
-<h2 class="anchored" data-anchor-id="cross-validation-in-time-series">Cross-validation in time series</h2>
-<p>Cross-validation applied to time series consists of:</p>
+<section id="tscv" class="level2">
+<h2 class="anchored" data-anchor-id="tscv">Cross-validation in time series</h2>
+<p>Cross-validation for time series consists of:</p>
 <ol type="1">
 <li><strong>Generating a series of train-test splits.</strong> These splits must respect the aspects below:
 <ul>
-<li><strong>They must respect the time-order structure of the data</strong>. Unlike in other areas of ML, where train-test splits are done using random sampling techniques, here the time structure of the data must be respected.</li>
-<li><strong>Training sets need a minimum size</strong> <span class="math inline">\(\rightarrow\)</span> the earliest observations cannot be used as test sets, or the training set would be too small.</li>
-<li><strong>The smallest training dataset should be at least as large as the maximum forecast horizon required.</strong> If possible, the smallest training dataset should be bigger than this.</li>
-<li>The training set shall only contain observations that occurred <strong>prior</strong> to the observations of the test set.</li>
-<li><strong>All the test sets must have the same length</strong>, and must be placed in time <strong>after the training set</strong>.</li>
+<li><strong>They must respect the time order of the data</strong>. In other areas of machine learning, train-test splits are drawn at random. Here the time structure must be respected: a model may never see observations that come after the ones it is tested on.</li>
+<li><strong>Training sets need a minimum size</strong>: the earliest observations cannot serve as test sets, or the training set would be too small.</li>
+<li><strong>The smallest training set should be at least as large as the longest forecast horizon required</strong>, and preferably larger.</li>
+<li>The training set only contains observations that come <strong>before</strong> the observations of the test set.</li>
+<li><strong>All test sets have the same length</strong>, and each one sits in time <strong>after its training set</strong>.</li>
 </ul></li>
-<li><strong>Compute the point forecast accuracy metrics for each of the different train-test splits generated, and average them.</strong></li>
+<li><strong>Compute the point forecast accuracy metrics on each train-test split, and average them.</strong></li>
 </ol>
-<p>Again, it is essential to respect the time structure of the data when performing these splits.</p>
+<p>Again: the splits must respect the time structure of the data.</p>
 </section>
-<section id="visualizing-the-train-test-splits" class="level2">
-<h2 class="anchored" data-anchor-id="visualizing-the-train-test-splits">Visualizing the train-test splits</h2>
-<p><strong>Problem:</strong> given a time series, we are to fit multiple models and evaluate their performance using cross-validation. <strong>Input</strong>: the corresponding values of the time series <span class="math inline">\(y_t\)</span> at a series of points in time, depicted below in grey. For simplicity, I only depict the points in time, without depicting the values <span class="math inline">\(y_t\)</span>:</p>
+<section id="splits" class="level2">
+<h2 class="anchored" data-anchor-id="splits">Visualizing the train-test splits</h2>
+<p><strong>Problem:</strong> given a time series, fit several models and compare their performance with cross-validation. <strong>Input:</strong> the values of the series <span class="math inline">\(y_t\)</span> at a sequence of points in time, shown below in grey. For simplicity, the figures show only the points in time, not the values <span class="math inline">\(y_t\)</span>:</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -2475,9 +2475,9 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>Instead of splitting this time series in a single train-test split, we are going to <strong>generate multiple train-test splits based on this original time series</strong>.</p>
-<section id="example-1-one-step-ahead-forecasts" class="level3">
-<h3 class="anchored" data-anchor-id="example-1-one-step-ahead-forecasts">Example 1: one-step ahead forecasts</h3>
+<p>Instead of one train-test split, we <strong>generate many train-test splits from this one series</strong>.</p>
+<section id="one-step" class="level3">
+<h3 class="anchored" data-anchor-id="one-step">Example 1: one-step-ahead forecasts</h3>
 <p>Let us start with a simple example, in which:</p>
 <ol type="1">
 <li>Training sets have an initial size and grow one observation at a time.</li>
@@ -2497,7 +2497,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>Performing cross-validation based on this series of train-test sets means:</p>
+<p>Cross-validation on this set of train-test splits means:</p>
 <ol type="1">
 <li>Fit the models to each of the training sets.</li>
 <li>For each model fitted to each training set, evaluate the forecast errors on their corresponding test set.</li>
@@ -2505,9 +2505,9 @@ window.Quarto = {
 </ol>
 <p><strong>Result</strong>: average errors over all the training datasets of each model for the forecast horizon being considered (in the example h = 1)</p>
 </section>
-<section id="example-2-multi-step-forecasts" class="level3">
-<h3 class="anchored" data-anchor-id="example-2-multi-step-forecasts">Example 2: multi-step forecasts</h3>
-<p>For multi-step forecasts, the same strategy is followed. This time the test set is at a distance <code>h</code> (the forecast horizon) from the training set.</p>
+<section id="multi-step" class="level3">
+<h3 class="anchored" data-anchor-id="multi-step">Example 2: multi-step forecasts</h3>
+<p>For multi-step forecasts the strategy is the same, but the test set sits at a distance <code>h</code> (the forecast horizon) from the training set.</p>
 <p>Suppose we are interested in models that produce good 4-step-ahead forecasts. The corresponding train-test splits would be:</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -2518,7 +2518,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>Again, performing cross-validation based on this series of train-test sets means:</p>
+<p>Again, cross-validation on this set of train-test splits means:</p>
 <ol type="1">
 <li>Fit the models to each of the training sets.</li>
 <li>For each model fitted to each training set, evaluate the forecast errors on their corresponding test set.</li>
@@ -2526,11 +2526,11 @@ window.Quarto = {
 </ol>
 <p><strong>Result</strong>: average errors over all the training datasets of each model for the forecast horizon being considered (in the example h = 4)</p>
 </section>
-<section id="example-3-cross-validation-for-multiple-forecast-horizons" class="level3">
-<h3 class="anchored" data-anchor-id="example-3-cross-validation-for-multiple-forecast-horizons">Example 3: cross-validation for multiple forecast horizons</h3>
-<p>In practice we are interested in analyzing which model performs best across a series of forecast horizons, not just for a specific one. For this purpose we need train-test splits that look like those in the figure below. The difference is that the test sets now include more than one forecast horizon.</p>
+<section id="multi-horizon" class="level3">
+<h3 class="anchored" data-anchor-id="multi-horizon">Example 3: cross-validation for several forecast horizons</h3>
+<p>In practice we want to know which model performs best across a range of forecast horizons, not at one horizon only. For that we need train-test splits like those in the figure below: the test sets now cover more than one forecast horizon.</p>
 <ul>
-<li>With the splits in the example, we could analyze forecast horizons of up to h = 4.</li>
+<li>With the splits in the example, we can analyze forecast horizons up to h = 4.</li>
 </ul>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -2541,7 +2541,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>With these train-test splits, cross-validation can be performed at two levels:</p>
+<p>With these splits, cross-validation can be done at two levels:</p>
 <ol type="1">
 <li><strong>Performance of the different models for each forecast horizon separately.</strong>
 <ul>
@@ -2583,18 +2583,18 @@ window.Quarto = {
 </section>
 </section>
 </section>
-<section id="function-stretch_tsibble" class="level2">
-<h2 class="anchored" data-anchor-id="function-stretch_tsibble">Function <code>stretch_tsibble()</code></h2>
-<p>Let us move to the practical aspects of how to obtain these multiple train-test splits in R.</p>
-<p>The function <code>stretch_tsibble()</code> is used in the <code>fable</code> library to create many training sets for cross-validation (this library is loaded along with <code>fpp3</code>). Arguments:</p>
+<section id="stretch" class="level2">
+<h2 class="anchored" data-anchor-id="stretch">The function <code>stretch_tsibble()</code></h2>
+<p>Let us move to the practical side: how to build these train-test splits in R.</p>
+<p>The function <code>stretch_tsibble()</code>, from the <code>tsibble</code> package (loaded with <code>fpp3</code>), creates the many training sets that cross-validation needs. Arguments:</p>
 <p><code>stretch_tsibble(.x, .step = 1, .init = 1)</code></p>
 <ul>
 <li><code>.x</code>: tsibble to be split following the time series cross-validation strategy.</li>
-<li><code>.step</code>: a positive integer specifying the growth rate of the training sets. That is, how many observations at a time are added to the training datasets. Default: <code>.step = 1</code>.</li>
-<li><code>.init</code>: a positive integer for the initial size of the training set. Default: <code>.init = 1</code>.</li>
+<li><code>.step</code>: a positive integer, the growth rate of the training sets: how many observations are added at a time. Default: <code>.step = 1</code>.</li>
+<li><code>.init</code>: a positive integer, the size of the first training set. Default: <code>.init = 1</code>.</li>
 </ul>
-<p>Remember the indications given above about the minimum sizes of the training datasets.</p>
-<p>The figure below summarizes the meaning of these arguments applied to one of the examples given before (you can zoom in on the .html file to enlarge it).</p>
+<p>Remember the rule above about the minimum size of the training sets.</p>
+<p>The figure below shows what the two arguments mean on one of the earlier examples (zoom in on the .html file to enlarge it).</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -2605,9 +2605,9 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="detailed-example-of-time-series-cross-validation" class="level2">
-<h2 class="anchored" data-anchor-id="detailed-example-of-time-series-cross-validation">Detailed example of time series cross-validation</h2>
-<p>We will use the data for google stock closing prices on 2015:</p>
+<section id="example" class="level2">
+<h2 class="anchored" data-anchor-id="example">Detailed example of time series cross-validation</h2>
+<p>We will use the Google closing stock prices of 2015:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>google_stock <span class="ot">&lt;-</span> gafa_stock <span class="sc">|&gt;</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Symbol <span class="sc">==</span> <span class="st">&quot;GOOG&quot;</span>, <span class="fu">year</span>(Date) <span class="sc">&gt;=</span> <span class="dv">2015</span>) <span class="sc">|&gt;</span></span>
@@ -2620,8 +2620,8 @@ window.Quarto = {
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">year</span>(Date) <span class="sc">==</span> <span class="dv">2015</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">everything</span>(), <span class="sc">-</span>Symbol)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<section id="step-1.-create-the-set-of-training-datasets-using-stretch_tsibble" class="level3">
-<h3 class="anchored" data-anchor-id="step-1.-create-the-set-of-training-datasets-using-stretch_tsibble">Step 1. Create the set of training datasets using <code>stretch_tsibble()</code>:</h3>
+<section id="step-1" class="level3">
+<h3 class="anchored" data-anchor-id="step-1">Step 1: build the training sets with <code>stretch_tsibble()</code></h3>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>google_2015_tr <span class="ot">&lt;-</span> google_2015 <span class="sc">|&gt;</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stretch_tsibble</span>(<span class="at">.init =</span> <span class="dv">20</span>, <span class="at">.step =</span> <span class="dv">1</span>) <span class="sc">|&gt;</span></span>
@@ -2651,16 +2651,16 @@ window.Quarto = {
 <pre><code>[1] 233</code></pre>
 </div>
 </div>
-<p>As you can see, 233 training datasets have been generated:</p>
+<p>233 training datasets have been generated:</p>
 <ul>
 <li>The column <code>.id</code> is an identifier for each of the training sets.</li>
 <li>Because <code>.init</code> was set to 20, the first training set has 20 elements.</li>
 <li>Because <code>.step</code> was set to 1, the training set is increased one observation at a time.</li>
 </ul>
 </section>
-<section id="step-2-fit-the-models-to-be-assessed-to-the-training-datasets-generated-before" class="level3">
-<h3 class="anchored" data-anchor-id="step-2-fit-the-models-to-be-assessed-to-the-training-datasets-generated-before">Step 2: fit the models to be assessed to the training datasets generated before</h3>
-<p>The following code fits a drift and a mean model to each of the training datasets! (2 x 233 = 466 models!)</p>
+<section id="step-2" class="level3">
+<h3 class="anchored" data-anchor-id="step-2">Step 2: fit the models to each training dataset</h3>
+<p>The following code fits a drift model and a mean model to each of the training datasets: 2 x 233 = 466 models.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>google_2015_fit_cv <span class="ot">&lt;-</span> google_2015_tr <span class="sc">|&gt;</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">model</span>(</span>
@@ -2694,9 +2694,9 @@ window.Quarto = {
 <li>The columns <code>Drift</code> and <code>Mean</code> (user choices to name the models) correspond to the models fitted to each of these training datasets.</li>
 </ul>
 </section>
-<section id="step-3-generate-forecasts" class="level3">
-<h3 class="anchored" data-anchor-id="step-3-generate-forecasts">Step 3: generate forecasts</h3>
-<p>Let us generate forecasts of a horizon of up to 8 training days for each of those models:</p>
+<section id="step-3" class="level3">
+<h3 class="anchored" data-anchor-id="step-3">Step 3: generate forecasts</h3>
+<p>Let us generate forecasts up to 8 trading days ahead from each of those models:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># TSCV accuracy</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>google_2015_fc_cv <span class="ot">&lt;-</span> google_2015_fit_cv <span class="sc">|&gt;</span> <span class="fu">forecast</span>(<span class="at">h =</span> <span class="dv">8</span>)</span>
@@ -2723,27 +2723,27 @@ window.Quarto = {
 </div>
 <p>The output of the forecast table (<code>fable</code>) is, as expected:</p>
 <ul>
-<li>8 forecasts for each combination of <code>.id</code> and <code>.model</code>. Therefore a total of 8 x 2 x 233 = 3278 point forecasts (column <code>.mean</code>) and their corresponding forecast distributions (column <code>Close</code>).</li>
+<li>8 forecasts for each combination of <code>.id</code> and <code>.model</code>: a total of 8 x 2 x 233 = 3,728 point forecasts (column <code>.mean</code>), each with its forecast distribution (column <code>Close</code>).</li>
 </ul>
 </section>
-<section id="step-4-generate-cross-validated-accuracy-metrics" class="level3">
-<h3 class="anchored" data-anchor-id="step-4-generate-cross-validated-accuracy-metrics">Step 4: generate cross-validated accuracy metrics:</h3>
-<section id="option-1-generate-accuracy-metrics-for-each-combination-of-model-and-forecast-horizon." class="level4">
-<h4 class="anchored" data-anchor-id="option-1-generate-accuracy-metrics-for-each-combination-of-model-and-forecast-horizon.">4.1 Option 1: generate accuracy metrics for each combination of model and forecast horizon.</h4>
-<p>To do this, we first need to add a column to the forecast table identifying which horizon each forecast corresponds to.</p>
+<section id="step-4" class="level3">
+<h3 class="anchored" data-anchor-id="step-4">Step 4: compute the cross-validated accuracy metrics</h3>
+<section id="by-horizon" class="level4">
+<h4 class="anchored" data-anchor-id="by-horizon">4.1 Option 1: accuracy metrics for each combination of model and forecast horizon</h4>
+<p>First we need a column in the forecast table that says which horizon each forecast belongs to.</p>
 <ul>
-<li>That is, we need a row counter that resets every time the combination of <code>.id</code> and model changes.</li>
-<li>Pay attention to the line <code>as_fable(response = &quot;Close&quot;, distribution = Close)</code>. This line ensures that, after performing <code>group_by()</code> followed by <code>mutate()</code> and <code>ungroup()</code>, the result is still a <code>fable</code> (forecast table).
+<li>That is, a row counter that resets every time the combination of <code>.id</code> and <code>.model</code> changes.</li>
+<li>Pay attention to the line <code>as_fable(response = &quot;Close&quot;, distribution = Close)</code>. It makes sure that, after <code>group_by()</code>, <code>mutate()</code> and <code>ungroup()</code>, the result is still a <code>fable</code> (forecast table).
 <ul>
-<li>This is important for the function <code>accuracy()</code> to work properly in the subsequent steps.</li>
+<li><code>accuracy()</code> needs that in the next step.</li>
 </ul></li>
 </ul>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>google_2015_fc_cv <span class="ot">&lt;-</span> google_2015_fc_cv <span class="sc">|&gt;</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(.id, .model) <span class="sc">|&gt;</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">h =</span> <span class="fu">row_number</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(.id, .model) <span class="sc">|&gt;</span> <span class="co"># within each training set and model...</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">h =</span> <span class="fu">row_number</span>()) <span class="sc">|&gt;</span> <span class="co"># ...the horizon runs from 1 to 8</span></span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_fable</span>(<span class="at">response =</span> <span class="st">&quot;Close&quot;</span>, <span class="at">distribution =</span> Close) <span class="sc">|&gt;</span> </span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_fable</span>(<span class="at">response =</span> <span class="st">&quot;Close&quot;</span>, <span class="at">distribution =</span> Close) <span class="sc">|&gt;</span> <span class="co"># still a forecast table</span></span>
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(h, <span class="fu">everything</span>()) <span class="co"># Reorder columns</span></span>
 <span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>google_2015_fc_cv</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -2766,8 +2766,8 @@ window.Quarto = {
 # ℹ 2 more variables: Close &lt;dist&gt;, .mean &lt;dbl&gt;</code></pre>
 </div>
 </div>
-<p>As you can see, the column h now identifies which forecast horizon each forecast corresponds to. It resets every time the value of <code>.id</code> or <code>.model</code> changes, because the preceding code performed <code>group_by(.id, .model)</code>.</p>
-<p>Once this has been done, we can use the <code>accuracy()</code> function to compute the metrics for each combination of <code>.model</code> and <code>h</code> giving it an additional argument <code>.by</code> that specifies the aggregation level for the accuracy metrics:</p>
+<p>The column <code>h</code> now says which forecast horizon each forecast belongs to. It resets every time <code>.id</code> or <code>.model</code> changes, because of the <code>group_by(.id, .model)</code>.</p>
+<p>Now <code>accuracy()</code> can compute the metrics for each combination of <code>.model</code> and <code>h</code>, with the extra argument <code>by</code> that sets the level of aggregation:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>summary_cv_h <span class="ot">&lt;-</span> google_2015_fc_cv <span class="sc">|&gt;</span> </span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">accuracy</span>(google_2015, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;.model&quot;</span>, <span class="st">&quot;h&quot;</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -2798,10 +2798,10 @@ window.Quarto = {
 16 Mean       8 Test  64.7    89.8 66.8  9.48    9.88  9.37  8.02 0.977 </code></pre>
 </div>
 </div>
-<p>In the preceding code, pay attention to the line <code>accuracy(google_2015, by = c(&quot;.model&quot;, &quot;h&quot;))</code>:</p>
+<p>In the code above, pay attention to <code>accuracy(google_2015, by = c(&quot;.model&quot;, &quot;h&quot;))</code>:</p>
 <ul>
-<li>We gave <code>google_2015</code> as an argument to <code>accuracy()</code>. This is the original dataset, prior to applying <code>stretch_tsibble()</code> to generate the training datasets.</li>
-<li><code>by = c(&quot;.model&quot;, &quot;h&quot;)</code> specifies the desired aggregation level for the accuracy metrics.</li>
+<li><code>google_2015</code> is the original dataset, before <code>stretch_tsibble()</code> was applied.</li>
+<li><code>by = c(&quot;.model&quot;, &quot;h&quot;)</code> sets the level of aggregation of the accuracy metrics.</li>
 </ul>
 <p>Let us inspect the result:</p>
 <div class="cell">
@@ -2828,22 +2828,22 @@ window.Quarto = {
 16 Mean       8 Test  64.7    89.8 66.8  9.48    9.88  9.37  8.02 0.977 </code></pre>
 </div>
 </div>
-<p>As you can see, the result details the accuracy metrics (columns <code>ME</code> to <code>ACF1</code>) for each combination of <code>.model</code> and <code>h</code>. That is, for each combination of model and forecast horizon.</p>
+<p>The result gives the accuracy metrics (columns <code>ME</code> to <code>ACF1</code>) for each combination of <code>.model</code> and <code>h</code>: for each model and forecast horizon.</p>
 <p>The output above contains, as expected:</p>
 <ul>
 <li>16 rows, one row for each combination of model (<code>.model</code>) and forecast horizon (<code>h</code>)</li>
 <li>One column for each of the accuracy metrics returned by <code>accuracy()</code>.
 <ul>
-<li>In this course, we will limit ourselves to the ones explained in class.</li>
+<li>In this course we use only the ones explained in class.</li>
 </ul></li>
 </ul>
-<p>Each of the rows above shows the average error metrics over all 233 training datasets for each model fitted, separated by forecast horizon. Some examples:</p>
+<p>Each row shows the error metrics averaged over all 233 training datasets, for one model and one forecast horizon. Two examples:</p>
 <ul>
-<li>The row corresponding to <code>h = 1</code> and <code>model = Drift</code> contains the average error metrics (MAE, RMSE…) of each of the 233 Drift models that were fitted to their corresponding training dataset when forecasting one step ahead on their corresponding test datasets.</li>
-<li>The row corresponding to <code>h = 4</code> and <code>model = Drift</code> contains the average error metrics (MAE, RMSE…) of each of the 233 Drift models that were fitted to their corresponding training dataset when forecasting the value four steps ahead on their corresponding test datasets.</li>
+<li>The row with <code>h = 1</code> and <code>.model = Drift</code> averages the error metrics (MAE, RMSE, …) of the 233 drift models, each fitted to its training dataset and forecasting one step ahead into its test dataset.</li>
+<li>The row with <code>h = 4</code> and <code>.model = Drift</code> averages the same metrics for the same 233 models forecasting four steps ahead.</li>
 </ul>
-<p>This is a much more statistically robust method than just performing a single train-test split.</p>
-<p>A good way to choose the best-performing forecasting model: find the model with the smallest RMSE for the forecast horizon we wish to compute using time series cross-validation. As explained in the session on point forecast accuracy, minimizing RMSE leads to forecasts on the mean.</p>
+<p>This is far more reliable than a single train-test split.</p>
+<p>A good way to choose a forecasting model: take the one with the smallest cross-validated RMSE at the forecast horizon you need. As explained in the session on point forecast accuracy, minimizing the RMSE targets the mean.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>summary_cv_h <span class="sc">|&gt;</span> </span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> h, <span class="at">y =</span> RMSE, <span class="at">color =</span> .model)) <span class="sc">+</span></span>
@@ -2856,12 +2856,12 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>As you can see the graph indicates that the average performance of the drift model over all the train-test splits is much better (smaller errors) than that of the mean method for this particular time series for all the forecast horizons analyzed.</p>
+<p>The graph shows that, averaged over all the train-test splits, the drift model has much smaller errors than the mean method on this series, at every forecast horizon analyzed.</p>
 </section>
-<section id="option-2-generate-average-accuracy-metrics-for-each-model-averaged-over-all-the-forecasting-horizons." class="level4">
-<h4 class="anchored" data-anchor-id="option-2-generate-average-accuracy-metrics-for-each-model-averaged-over-all-the-forecasting-horizons.">4.2 Option 2: generate average accuracy metrics for each model averaged over all the forecasting horizons.</h4>
-<p>Perhaps we are not interested in producing forecasts with a specific horizon, but rather we would like a model that returns the best forecasts on average over all the horizons.</p>
-<p>To attain this, we use again the <code>accuracy()</code> function but we do not provide an argument for <code>by</code>. It will therefore default to grouping solely by <code>.model</code> and the <code>Key</code> identifier of the time series. Let us check this:</p>
+<section id="averaged" class="level4">
+<h4 class="anchored" data-anchor-id="averaged">4.2 Option 2: accuracy metrics for each model, averaged over all forecast horizons</h4>
+<p>Perhaps no single horizon matters, and we want the model that forecasts best on average over all of them.</p>
+<p>For that we call <code>accuracy()</code> again without the <code>by</code> argument. It then groups by <code>.model</code> and by the key of the time series only. Let us check:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>google_2015_fc_cv <span class="sc">|&gt;</span> </span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">accuracy</span>(google_2015)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -2893,31 +2893,31 @@ window.Quarto = {
 2 Mean   Test  62.6   87.7  64.7 9.17   9.57  9.08  7.83 0.966</code></pre>
 </div>
 </div>
-<p>The above metrics are the average performance metrics of each of the model types over all the train-test splits and forecast horizons. For example:</p>
+<p>These metrics average the performance of each model over all the train-test splits and all the forecast horizons. For example:</p>
 <ul>
-<li>The row corresponding to the <code>Drift</code> contains the error metrics of the drift model averaged over the 233 train-test splits and over all the forecast horizons.</li>
+<li>The <code>Drift</code> row contains the error metrics of the drift model averaged over the 233 train-test splits and the 8 forecast horizons.</li>
 </ul>
 </section>
 </section>
 </section>
-<section id="exercise-cross-validation" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-cross-validation">Exercise: cross-validation</h2>
+<section id="exercise" class="level2">
+<h2 class="anchored" data-anchor-id="exercise">Exercise: cross-validation</h2>
 <section id="task" class="level3">
 <h3 class="anchored" data-anchor-id="task">Task</h3>
-<p>Perform cross-validation on the Australian beer production time series. Use the dataset <code>recent_production</code> created further down below.</p>
+<p>Run a cross-validation of the four benchmark methods on the Australian production of beer, using the dataset <code>recent_production</code> created below.</p>
 </section>
-<section id="step-0.-identify-your-dataset-and-think-about-which-variables-you-need" class="level3">
-<h3 class="anchored" data-anchor-id="step-0.-identify-your-dataset-and-think-about-which-variables-you-need">Step 0. Identify your dataset and think about which variables you need</h3>
+<section id="step-0-the-dataset-and-the-variables-it-needs" class="level3">
+<h3 class="anchored" data-anchor-id="step-0-the-dataset-and-the-variables-it-needs">Step 0: the dataset, and the variables it needs</h3>
 <ul>
-<li>We will work with <code>recent_production</code>, specifically with the production of beer, which we will store in <code>beer_production</code>. We will apply <code>stretch_tsibble()</code> to this time series to generate our set of training datasets.</li>
-<li>For convenience, I will select only the variables relevant to the analysis.</li>
+<li>We work with <code>recent_production</code>, specifically with the production of beer, stored in <code>beer_production</code>. <code>stretch_tsibble()</code> is applied to this series to generate the training datasets.</li>
+<li>For convenience, only the relevant variables are kept.</li>
 </ul>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>recent_production <span class="ot">&lt;-</span> aus_production <span class="sc">|&gt;</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">year</span>(Quarter) <span class="sc">&gt;=</span> <span class="dv">1992</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">year</span>(Quarter) <span class="sc">&gt;=</span> <span class="dv">1992</span>) <span class="co"># from 1992 on, as in the point accuracy session</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>beer_production <span class="ot">&lt;-</span> <span class="fu">select</span>(recent_production, Quarter, Beer)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>beer_production <span class="ot">&lt;-</span> recent_production <span class="sc">|&gt;</span> <span class="fu">select</span>(Quarter, Beer)</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>beer_production</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tsibble: 74 x 2 [1Q]
@@ -2937,23 +2937,23 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="step-1.-create-the-set-of-training-datasets-using-stretch_tsibble-1" class="level3">
-<h3 class="anchored" data-anchor-id="step-1.-create-the-set-of-training-datasets-using-stretch_tsibble-1">Step 1. Create the set of training datasets using <code>stretch_tsibble()</code></h3>
+<section id="step-1-build-the-training-sets-with-stretch_tsibble" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-build-the-training-sets-with-stretch_tsibble">Step 1: build the training sets with <code>stretch_tsibble()</code></h3>
 </section>
-<section id="step-2-fit-the-models" class="level3">
-<h3 class="anchored" data-anchor-id="step-2-fit-the-models">Step 2: Fit the models</h3>
+<section id="step-2-fit-the-four-benchmark-methods-to-every-training-set" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-fit-the-four-benchmark-methods-to-every-training-set">Step 2: fit the four benchmark methods to every training set</h3>
 </section>
-<section id="step-3-generate-the-forecasts" class="level3">
-<h3 class="anchored" data-anchor-id="step-3-generate-the-forecasts">Step 3: generate the forecasts</h3>
+<section id="step-3-forecast-from-every-model-and-label-the-horizon" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-forecast-from-every-model-and-label-the-horizon">Step 3: forecast from every model, and label the horizon</h3>
 <p>Consider a forecast horizon of up to 4.</p>
 </section>
-<section id="step-4-generate-cross-validated-accuracy-metrics-1" class="level3">
-<h3 class="anchored" data-anchor-id="step-4-generate-cross-validated-accuracy-metrics-1">Step 4: generate cross-validated accuracy metrics</h3>
-<section id="option-1-generate-accuracy-metrics-for-each-combination-of-model-and-forecast-horizon.-1" class="level4">
-<h4 class="anchored" data-anchor-id="option-1-generate-accuracy-metrics-for-each-combination-of-model-and-forecast-horizon.-1">4.1 Option 1: generate accuracy metrics for each combination of model and forecast horizon.</h4>
+<section id="step-4-cross-validated-accuracy-by-horizon-and-averaged" class="level3">
+<h3 class="anchored" data-anchor-id="step-4-cross-validated-accuracy-by-horizon-and-averaged">Step 4: cross-validated accuracy, by horizon and averaged</h3>
+<section id="option-1-accuracy-metrics-for-each-combination-of-model-and-forecast-horizon" class="level4">
+<h4 class="anchored" data-anchor-id="option-1-accuracy-metrics-for-each-combination-of-model-and-forecast-horizon">4.1 Option 1: accuracy metrics for each combination of model and forecast horizon</h4>
 </section>
-<section id="option-2-generate-average-accuracy-metrics-for-each-model-averaged-over-all-the-forecasting-horizons.-1" class="level4">
-<h4 class="anchored" data-anchor-id="option-2-generate-average-accuracy-metrics-for-each-model-averaged-over-all-the-forecasting-horizons.-1">4.2 Option 2: generate average accuracy metrics for each model averaged over all the forecasting horizons.</h4>
+<section id="option-2-accuracy-metrics-for-each-model-averaged-over-all-forecast-horizons" class="level4">
+<h4 class="anchored" data-anchor-id="option-2-accuracy-metrics-for-each-model-averaged-over-all-forecast-horizons">4.2 Option 2: accuracy metrics for each model, averaged over all forecast horizons</h4>
 </section>
 </section>
 </section>
