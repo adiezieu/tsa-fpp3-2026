@@ -455,9 +455,9 @@ body.ov-on #overview{display:block}
     <ul class="build" style="margin-top:1.4rem">
       <li class="step"><b>Two differences, and only two:</b> where the comparison happens, training or test, and how far ahead the forecast reached, one step or <code>h</code>.</li>
       <li class="step"><b>Error is not mistake.</b> It is the unpredictable part of an observation: whatever the model could not capture. A good model still has errors; it has small, patternless ones.</li>
-      <li class="step"><b>Session 12 used residuals to size the interval.</b> Today uses forecast errors to size the model. Same subtraction, different data.</li>
+      <li class="step"><b>Session 12 used residuals to size the interval.</b> Today uses forecast errors to size the model. It is the same subtraction, applied to different data.</li>
     </ul>
-    <p class="punch step wide">Residuals tell you how the model rehearsed. Forecast errors tell you how it performed.</p>
+    <p class="punch step wide">The residuals show how the model did in rehearsal, on the training data, and the forecast errors show how it did on the test set.</p>
   </div>
   <aside class="notes">Why residuals are always one step ahead: a fitted value at time <i>t</i> is the model&#39;s forecast of <i>y<sub>t</sub></i> from everything up to <i>t</i> minus 1. So the residual at <i>t</i> is a one-step miss by construction. Forecast errors on the test set are made from the end of the training set, <i>T</i>, and reach <i>h</i> steps out, so the tenth test observation is compared with a ten-step forecast.<br><br>Multi-step errors are usually larger than one-step errors, for the same reason Session 12&#39;s intervals widen with the horizon.</aside>
 </section>
@@ -474,7 +474,7 @@ body.ov-on #overview{display:block}
       <li class="step"><b>A perfect fit is a warning.</b> With enough parameters any model threads every training point; it has memorized the noise, and the noise will not repeat on the test set. That is overfitting.</li>
       <li class="step"><b>Overfitting is as bad as missing the pattern.</b> Both forecast badly; one of them looks wonderful on the training set first.</li>
     </ul>
-    <p class="punch step wide">The training set tells you whether a model can learn. Only the test set tells you whether it learned the right thing.</p>
+    <p class="punch step wide">A good training fit shows that a model can learn from the data, but you need the test set to find out whether what it learned carries over to new observations.</p>
   </div>
   <aside class="notes">The 20% rule is a rule of thumb, not a law. The three requirements pull against each other: a longer test set judges more reliably, a longer training set estimates more reliably, and the test set has to reach at least as far as you intend to forecast. With a short series something has to give, and Session 14&#39;s cross-validation is the way to get more judging out of the same data.<br><br>Session 18 returns to overfitting with the Holt&ndash;Winters models, which have many parameters: "with four parameters I can fit an elephant".</aside>
 </section>
@@ -483,7 +483,7 @@ body.ov-on #overview{display:block}
   <div class="inner">
     <a class="nb" href="13_Train_Test.html#subsetting" target="_blank" rel="noopener" title="Open the notebook at this section">13_Train_Test &rsaquo; Functions to subset a time series</a>
     <p class="kicker">Now we compute</p>
-    <h1 class="sowhat wide">Three verbs cut a series. The parentheses decide which rows you get.</h1>
+    <h1 class="sowhat wide">Three verbs cut a series, and the parentheses decide which rows you get.</h1>
     <div class="console tight"><span class="dim"># by condition</span>
 aus_production |&gt; filter(year(Quarter) &gt;= 1995)
 
@@ -498,7 +498,7 @@ aus_production |&gt; slice(n() - 19:0)</div>
       <li class="step"><b>The parentheses are the trap.</b> <code>1:(n() - 12)</code> is the first <code>n &minus; 12</code> rows. <code>1:n() - 12</code> is something else, silently, because <code>:</code> binds tighter than <code>&minus;</code>.</li>
       <li class="step"><b>Many series at once:</b> <code>group_by()</code> the keys before <code>slice()</code>, and <code>ungroup()</code> after, or the split happens across all series together.</li>
     </ul>
-    <p class="punch step wide">Every test set you build this term starts with one of these three lines. Get the parentheses right once.</p>
+    <p class="punch step wide">Every test set you build this term starts with one of these three lines, so check the parentheses carefully now.</p>
   </div>
   <aside class="notes">The minus sign in <code>slice(-(1:(n() - 12)))</code> means "everything except these positions", the same idiom as dropping columns with <code>select(-x)</code>.<br><br>Why <code>n() - 19:0</code> gives the last 20 rows: <code>19:0</code> is the sequence 19, 18, ..., 0, and subtracting it from <code>n()</code> gives <code>n - 19</code> up to <code>n</code>. Adding or subtracting a number shifts a sequence; it does not change its length.<br><br>fpp3 also uses <code>filter_index()</code> for date ranges written as strings. It is a convenience; <code>filter()</code> with <code>year()</code> or <code>yearmonth()</code> does the same job.</aside>
 </section>
@@ -507,7 +507,7 @@ aus_production |&gt; slice(n() - 19:0)</div>
   <div class="inner">
     <a class="nb" href="13_A_PointAccuracy.html#absolute-relative" target="_blank" rel="noopener" title="Open the notebook at this section">13_A &rsaquo; Absolute and relative errors</a>
     <p class="kicker">Measuring a miss &nbsp;&middot;&nbsp; two families</p>
-    <h1 class="sowhat wide">Differences keep the units. Ratios drop them.</h1>
+    <h1 class="sowhat wide">Error measures built on differences keep the units, and those built on ratios do not.</h1>
     <div class="console">absolute error    |y &minus; y&#770;|          <span class="dim">in the units of y: megalitres, dollars, people</span>
 relative error    |y &minus; y&#770;| / |y|    <span class="dim">no units: a fraction, usually read as a percentage</span></div>
     <ul class="build">
@@ -515,7 +515,7 @@ relative error    |y &minus; y&#770;| / |y|    <span class="dim">no units: a fra
       <li class="step"><b>The absolute value is there so misses do not cancel.</b> A model that is 10 too high and then 10 too low has a mean error of zero and an average miss of 10. The plain mean of the errors measures bias, Session 9&#39;s property 2, not size.</li>
       <li class="step"><b>Units decide what you can compare.</b> A difference compares models on one series. A ratio, or a scaled error, compares across series measured in different things.</li>
     </ul>
-    <p class="punch step wide">Before reading any accuracy number, ask which family it belongs to. The units tell you.</p>
+    <p class="punch step wide">Before reading any accuracy number, check whether it is a difference or a ratio; its units will tell you.</p>
   </div>
   <aside class="notes">The exam asks for this at the level of a table: given a few observations and forecasts, compute the errors, the absolute errors, the percentage errors, and the metrics on the next slides. It is arithmetic; the judgment is in knowing which metric answers which question.</aside>
 </section>
@@ -524,14 +524,14 @@ relative error    |y &minus; y&#770;| / |y|    <span class="dim">no units: a fra
   <div class="inner">
     <a class="nb" href="13_A_PointAccuracy.html#scale-dependent" target="_blank" rel="noopener" title="Open the notebook at this section">13_A &rsaquo; Scale-dependent error metrics</a>
     <p class="kicker">Scale-dependent metrics &nbsp;&middot;&nbsp; same units as the series</p>
-    <h1 class="sowhat wide">Squaring punishes the big miss. The absolute value forgives it.</h1>
+    <h1 class="sowhat wide">Squaring the errors penalizes a big miss much more than taking the absolute value does.</h1>
     <figure>
       <svg viewBox="0 0 760 178" role="img" aria-label="Two bar charts of the same five errors, 2, minus 3, 1, 8 and minus 2. Left, their absolute values: 2, 3, 1, 8, 2, all counting in proportion. Right, their squares: 4, 9, 1, 64, 4, where the error of 8 dominates everything else"><g font-family="SFMono-Regular,Menlo,monospace"><line x1="60" y1="150" x2="360" y2="150" stroke="#98928a" stroke-width="1"/><line x1="60" y1="150" x2="60" y2="30" stroke="#98928a" stroke-width="1"/><text x="210" y="24" text-anchor="middle" fill="#6B665E" font-size="11" >absolute errors |e|: all count in proportion</text><rect x="85" y="146.9" width="34" height="3.1" fill="#1F3A4D" opacity="0.45"/><text x="102" y="166" text-anchor="middle" fill="#98928a" font-size="10.5" >e = 2</text><text x="102" y="141.875" text-anchor="middle" fill="#161513" font-size="10.5" font-weight="700" >2</text><rect x="140" y="145.3" width="34" height="4.7" fill="#1F3A4D" opacity="0.45"/><text x="157" y="166" text-anchor="middle" fill="#98928a" font-size="10.5" >e = -3</text><text x="157" y="140.3125" text-anchor="middle" fill="#161513" font-size="10.5" font-weight="700" >3</text><rect x="195" y="148.4" width="34" height="1.6" fill="#1F3A4D" opacity="0.45"/><text x="212" y="166" text-anchor="middle" fill="#98928a" font-size="10.5" >e = 1</text><text x="212" y="143.4375" text-anchor="middle" fill="#161513" font-size="10.5" font-weight="700" >1</text><rect x="250" y="137.5" width="34" height="12.5" fill="#1F3A4D" opacity="0.9"/><text x="267" y="166" text-anchor="middle" fill="#98928a" font-size="10.5" >e = 8</text><text x="267" y="132.5" text-anchor="middle" fill="#161513" font-size="10.5" font-weight="700" >8</text><rect x="305" y="146.9" width="34" height="3.1" fill="#1F3A4D" opacity="0.45"/><text x="322" y="166" text-anchor="middle" fill="#98928a" font-size="10.5" >e = -2</text><text x="322" y="141.875" text-anchor="middle" fill="#161513" font-size="10.5" font-weight="700" >2</text><line x1="420" y1="150" x2="720" y2="150" stroke="#98928a" stroke-width="1"/><line x1="420" y1="150" x2="420" y2="30" stroke="#98928a" stroke-width="1"/><text x="570" y="24" text-anchor="middle" fill="#6B665E" font-size="11" >squared errors e&sup2;: the big one dominates</text><rect x="445" y="143.8" width="34" height="6.2" fill="#B5471E" opacity="0.45"/><text x="462" y="166" text-anchor="middle" fill="#98928a" font-size="10.5" >e = 2</text><text x="462" y="138.75" text-anchor="middle" fill="#161513" font-size="10.5" font-weight="700" >4</text><rect x="500" y="135.9" width="34" height="14.1" fill="#B5471E" opacity="0.45"/><text x="517" y="166" text-anchor="middle" fill="#98928a" font-size="10.5" >e = -3</text><text x="517" y="130.9375" text-anchor="middle" fill="#161513" font-size="10.5" font-weight="700" >9</text><rect x="555" y="148.4" width="34" height="1.6" fill="#B5471E" opacity="0.45"/><text x="572" y="166" text-anchor="middle" fill="#98928a" font-size="10.5" >e = 1</text><text x="572" y="143.4375" text-anchor="middle" fill="#161513" font-size="10.5" font-weight="700" >1</text><rect x="610" y="50.0" width="34" height="100.0" fill="#B5471E" opacity="0.9"/><text x="627" y="166" text-anchor="middle" fill="#98928a" font-size="10.5" >e = 8</text><text x="627" y="45.0" text-anchor="middle" fill="#161513" font-size="10.5" font-weight="700" >64</text><rect x="665" y="143.8" width="34" height="6.2" fill="#B5471E" opacity="0.45"/><text x="682" y="166" text-anchor="middle" fill="#98928a" font-size="10.5" >e = -2</text><text x="682" y="138.75" text-anchor="middle" fill="#161513" font-size="10.5" font-weight="700" >4</text></g></svg>
     </figure>
     <div class="console tight">MAE  = mean( |e<sub>t</sub>| )           RMSE = sqrt( mean( e<sub>t</sub>&sup2; ) )</div>
     <ul class="build">
       <li class="step"><b>MAE reads as a sentence:</b> "on average, off by 14.3 megalitres". RMSE is in the same units but weighs large misses more, so it reacts to the occasional big error.</li>
-      <li class="step"><b>They aim at different targets.</b> A method that minimizes the MAE forecasts the median; one that minimizes the RMSE forecasts the mean. Session 12&#39;s mean-or-median question, again.</li>
+      <li class="step"><b>They aim at different targets.</b> A method that minimizes the MAE forecasts the median; one that minimizes the RMSE forecasts the mean. This is Session 12&#39;s mean-or-median question again.</li>
       <li class="step"><b>Neither compares across series.</b> 14 megalitres of beer and 14 dollars of turnover are not the same miss.</li>
     </ul>
     <p class="punch step wide">Use MAE when you want a number a manager can read. Use RMSE when a big miss hurts more than several small ones.</p>
@@ -549,7 +549,7 @@ relative error    |y &minus; y&#770;| / |y|    <span class="dim">no units: a fra
 <span class="dim">case 1:</span>  y = 150,  y&#770; = 100  &rarr;  |150 &minus; 100| / 150 = <span class="hl">33%</span>
 <span class="dim">case 2:</span>  y = 100,  y&#770; = 150  &rarr;  |100 &minus; 150| / 100 = <span class="hl">50%</span>      <span class="dim">same miss of 50, different y</span></div>
     <ul class="build">
-      <li class="step"><b>Unit-free, so it compares across series.</b> "Off by 3.3%" means the same for beer and for turnover. That is the whole appeal.</li>
+      <li class="step"><b>It is unit-free, so it compares across series.</b> "Off by 3.3%" means the same for beer and for turnover.</li>
       <li class="step"><b>Failure one: zeros.</b> A <code>y<sub>t</sub></code> of zero makes the ratio infinite; values near zero make it enormous. Daily sales of a slow product cannot be judged with MAPE.</li>
       <li class="step"><b>Failure two: an arbitrary zero.</b> Temperature in Celsius has a zero that means nothing special, so a percentage of it means nothing either. MAPE needs a scale where zero is zero.</li>
     </ul>
@@ -562,14 +562,14 @@ relative error    |y &minus; y&#770;| / |y|    <span class="dim">no units: a fra
   <div class="inner">
     <a class="nb" href="13_A_PointAccuracy.html#scaled" target="_blank" rel="noopener" title="Open the notebook at this section">13_A &rsaquo; Scaled errors</a>
     <p class="kicker">Scaled errors &nbsp;&middot;&nbsp; no units, no zero problem</p>
-    <h1 class="sowhat wide">MASE answers the only question that matters at first: better than doing nothing?</h1>
+    <h1 class="sowhat wide">MASE answers the first question to ask of any model: is it better than doing nothing?</h1>
     <div class="console">Q = mean |y<sub>t</sub> &minus; y<sub>t&minus;1</sub>|   on the training set     <span class="dim">(y<sub>t&minus;m</sub> for seasonal data)</span>
 q<sub>j</sub> = e<sub>j</sub> / Q                                         <span class="dim">a scaled error: no units</span>
 
 MASE = mean( |q<sub>j</sub>| )      RMSSE = sqrt( mean( q<sub>j</sub>&sup2; ) )</div>
     <ul class="build">
       <li class="step"><b>The scale, Q, is the naive method&#39;s average miss on the training set</b>: how far the series typically moves from one observation to the next (or from one season to the next).</li>
-      <li class="step"><b>So MASE below 1 beats "forecast the last value".</b> Above 1, the naive forecast would have done better. No units, and it works on series with zeros.</li>
+      <li class="step"><b>So MASE below 1 beats "forecast the last value".</b> Above 1, the naive forecast would have done better. It has no units, and it works on series with zeros.</li>
       <li class="step"><b>A built-in check:</b> on the beer training set, the seasonal naive model has a MASE of exactly 1, because its own errors are the scale.</li>
     </ul>
     <p class="punch step wide">If a model cannot beat the naive forecast, nothing else about it matters. MASE puts that test in one number.</p>
@@ -581,7 +581,7 @@ MASE = mean( |q<sub>j</sub>| )      RMSSE = sqrt( mean( q<sub>j</sub>&sup2; ) )<
   <div class="inner">
     <a class="nb" href="13_A_PointAccuracy.html#example-1" target="_blank" rel="noopener" title="Open the notebook at this section">13_A &rsaquo; Example 1 of error metrics</a>
     <p class="kicker">Now we compute &nbsp;&middot;&nbsp; beer, four benchmarks, 1992 to 2007 for training</p>
-    <h1 class="sowhat wide"><code>accuracy()</code> on the models gives residual metrics. On the forecasts with the full data, forecast errors.</h1>
+    <h1 class="sowhat wide"><code>accuracy()</code> on the models gives residual metrics; on the forecasts, with the full data, it gives forecast errors.</h1>
     <div class="console tight">beer_fit |&gt; accuracy()                      <span class="dim"># .type = Training: from the residuals</span>
 beer_fc  |&gt; accuracy(recent_production)     <span class="dim"># .type = Test: forecasts matched to the full series</span></div>
     <table class="traps compact">
@@ -592,11 +592,11 @@ beer_fc  |&gt; accuracy(recent_production)     <span class="dim"># .type = Test:
       <tr><td class="os">Drift</td><td>54.8 &middot; 65.3 &middot; 12.2% &middot; 3.83</td><td class="fix">58.9 &middot; 64.9 &middot; 14.6% &middot; 4.12</td></tr>
     </table>
     <ul class="build">
-      <li class="step"><b>Two calls, two tables.</b> On the mable, <code>accuracy()</code> reads the residuals. On the fable, it needs the whole series to match each forecast with the observation it missed.</li>
+      <li class="step"><b>Two calls give two tables.</b> On the mable, <code>accuracy()</code> reads the residuals. On the fable, it needs the whole series to match each forecast with the observation it missed.</li>
       <li class="step"><b>Read the units.</b> MAE and RMSE in megalitres; MAPE in percent; MASE against the seasonal naive&#39;s training miss, which is why its own training MASE is 1.</li>
       <li class="step"><b>Here the seasonal naive wins everything,</b> on both sets. Usually the picture is messier, and then you choose the metric before you choose the model.</li>
     </ul>
-    <p class="punch step wide">The notebook&#39;s Google example is the same workflow on non-seasonal data. The verbs do not change; only the winner does.</p>
+    <p class="punch step wide">The notebook&#39;s Google example applies the same workflow to non-seasonal data. The code is the same, but a different model wins.</p>
   </div>
   <aside class="notes">Why the naive and the drift methods tie on the training set: their fitted values differ by one constant, the estimated slope, so their residuals differ by that constant too and the absolute and squared averages barely move. On the test set the drift&#39;s slope carries the forecast away from the seasonal pattern and it loses by a little.<br><br>The training MAPE of 3.3% for the seasonal naive reads as: on average, last year&#39;s same quarter was 3.3% away from this year&#39;s.</aside>
 </section>
@@ -605,7 +605,7 @@ beer_fc  |&gt; accuracy(recent_production)     <span class="dim"># .type = Test:
   <div class="inner">
     <a class="nb" href="13_A_PointAccuracy.html#manual" target="_blank" rel="noopener" title="Open the notebook at this section">13_A &rsaquo; Manual computation of MAE and RMSE</a>
     <p class="kicker">Now we compute &nbsp;&middot;&nbsp; drift model, both sets</p>
-    <h1 class="sowhat wide">Four lines reproduce <code>accuracy()</code>. The fifth, <code>all.equal()</code>, is the point.</h1>
+    <h1 class="sowhat wide">Four lines reproduce <code>accuracy()</code>, and a fifth, <code>all.equal()</code>, checks that they match.</h1>
     <div class="console tight"><span class="dim"># training set: the residuals</span>
 resid &lt;- beer_fit |&gt; select(Drift) |&gt; augment() |&gt; pull(.innov) |&gt; na.omit()
 MAE_manual  &lt;- mean(abs(resid));   RMSE_manual &lt;- sqrt(mean(resid^2))
@@ -618,9 +618,9 @@ all.equal(sqrt(mean(err^2)), RMSE_fable)                      <span class="hl">#
     <ul class="build">
       <li class="step"><b>Residuals come out of <code>augment()</code>;</b> drop the NAs before averaging, or the metric is NA.</li>
       <li class="step"><b>Forecast errors are observations minus forecasts,</b> in that order, matched quarter by quarter. The sign convention matters for the mean error; it vanishes under the absolute value and the square.</li>
-      <li class="step"><b>The homework repeats this for the seasonal naive.</b> Same four lines, a different model name, four NAs instead of one.</li>
+      <li class="step"><b>The homework repeats this for the seasonal naive.</b> It uses the same four lines with a different model name, and there are four NAs to drop instead of one.</li>
     </ul>
-    <p class="punch step wide">If you can do this on a table of ten numbers with a calculator, the accuracy questions on the final are yours.</p>
+    <p class="punch step wide">If you can do this with a calculator on a table of ten numbers, you are ready for the accuracy questions on the final.</p>
   </div>
   <aside class="notes">Model names with spaces, such as <code>Seasonal naive</code>, need backticks when used in <code>select()</code>. Or name the models without spaces when you fit them.<br><br>Why <code>accuracy()</code> wants the full series rather than the test set alone: it matches each forecast to the observation at the same index, and it needs the training part to compute the scale for MASE. Passing only the test set gives the same MAE and RMSE and a different MASE.</aside>
 </section>
@@ -643,9 +643,9 @@ all.equal(sqrt(mean(err^2)), RMSE_fable)                      <span class="hl">#
 <section class="slide" data-section="6" data-title="Next session">
   <div class="inner">
     <p class="kicker">What comes next</p>
-    <h1 class="sowhat">One split is one draw. Session 14 draws many.</h1>
+    <h1 class="sowhat">One train/test split is a single draw, and Session 14 repeats it many times.</h1>
     <p class="lead wide">Today&#39;s test set was one stretch of ten quarters. Move the cut by a year and the winner can change. Session 14 slides the cut along the whole series with <code>stretch_tsibble()</code>, fits every model on every training set, and averages the errors: cross-validation for time series, and why the k-fold version from other courses is wrong here.</p>
-    <p class="punch step wide">Scale, range, size of the error. Session 14 makes the last one reliable.</p>
+    <p class="punch step wide">Session 14 makes the last of the three pieces, the size of the error, more reliable.</p>
     <p class="url" style="font-size:clamp(0.95rem,1.7vw,1.9rem)">aberrizbeitia@faculty.ie.edu</p>
   </div>
   <aside class="notes">Before Session 14, be sure of two things from today: that the test set must come after the training set in time, and that <code>group_by()</code> followed by <code>mutate()</code> labels rows within each group. Cross-validation is those two ideas, repeated.</aside>

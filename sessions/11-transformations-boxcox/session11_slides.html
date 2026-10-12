@@ -437,7 +437,7 @@ body.ov-on #overview{display:block}
       <li class="step"><b>Sessions 13 and 14 measure the error</b> on data the model has not seen, once and then many times.</li>
       <li class="step"><b>Sessions 15 to 19 build one model family end to end:</b> exponential smoothing, by hand first, then with <code>ETS()</code>.</li>
     </ul>
-    <p class="punch step wide">Nothing in Part 2 replaces Part 1. Every tool from Sessions 1 to 9 comes back, pointed at a model instead of a series.</p>
+    <p class="punch step wide">Part 2 builds on Part 1: every tool from Sessions 1 to 9 comes back, now applied to a fitted model rather than to the raw series.</p>
   </div>
   <aside class="notes">The three groups are also the three questions the final asks about any model: is the series on the right scale, how wide an interval is honest, and how large are the errors. The exponential smoothing block answers all three for one concrete family of models.<br><br>Group Assignment 2, released in Session 17, uses everything in this roadmap: residual diagnostics, accuracy metrics, cross-validation and the smoothing models.</aside>
 </section>
@@ -452,9 +452,9 @@ body.ov-on #overview{display:block}
     <ul class="build">
       <li class="step"><b>You have seen this twice.</b> Session 5 called it a multiplicative series. Session 9 called it a failure of property 3: the residual spread drifts, so one interval width cannot be honest.</li>
       <li class="step"><b>The fix is a change of scale, not a change of model.</b> On the log scale a 10% swing is the same height whether the series sits at 100 or at 10,000.</li>
-      <li class="step"><b>Today makes the choice systematic.</b> Session 5 picked a rung of the ladder by eye. Today a number, lambda, picks it for you, and you decide whether to trust it.</li>
+      <li class="step"><b>Today makes the choice systematic.</b> Session 5 picked a rung of the ladder by eye; today a number, lambda, picks it for you, and you decide whether to trust it.</li>
     </ul>
-    <p class="punch step wide">Transform the series, fit an additive model, then undo the transformation. Session 12 does the undoing.</p>
+    <p class="punch step wide">The plan is to transform the series, fit an additive model, and then undo the transformation, which is what Session 12 covers.</p>
   </div>
   <aside class="notes">Why "another scale" rather than "another model": every model in this course describes additive structure, a level plus a trend plus a seasonal swing of fixed size. A multiplicative series breaks that assumption, and the cheapest way to restore it is to measure the series on a scale where multiplication becomes addition. That is exactly what a logarithm does.<br><br>The dashed lines on the left panel are a quick visual test: if the envelope of the series opens like a funnel, the spread tracks the level.</aside>
 </section>
@@ -467,7 +467,7 @@ body.ov-on #overview{display:block}
       <svg viewBox="0 0 760 228" role="img" aria-label="Two rulers. On the linear ruler, 1, 10 and 100 are crowded at the left end and 1,000 is at the far right, because each times-ten step is a different distance. On the logarithmic ruler the same four numbers are evenly spaced, and each times-ten step is the same distance, so equal steps mean equal percentage changes"><g font-family="SFMono-Regular,Menlo,monospace"><defs><marker id="ar11" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z" fill="#B5471E"/></marker></defs><text x="20" y="30" text-anchor="start" fill="#1F3A4D" font-size="10" font-weight="700" >LINEAR SCALE</text><line x1="60" y1="60" x2="720" y2="60" stroke="#161513" stroke-width="1.5"/><line x1="60.7" y1="52" x2="60.7" y2="68" stroke="#161513" stroke-width="1.5"/><text x="66.66" y="84" text-anchor="start" fill="#161513" font-size="11" >1</text><line x1="66.6" y1="52" x2="66.6" y2="68" stroke="#161513" stroke-width="1.5"/><text x="72.6" y="84" text-anchor="start" fill="#161513" font-size="11" >10</text><line x1="126.0" y1="52" x2="126.0" y2="68" stroke="#161513" stroke-width="1.5"/><text x="126.0" y="84" text-anchor="middle" fill="#161513" font-size="11" >100</text><line x1="720.0" y1="52" x2="720.0" y2="68" stroke="#161513" stroke-width="1.5"/><text x="720.0" y="84" text-anchor="middle" fill="#161513" font-size="11" >1,000</text><text x="390" y="110" text-anchor="middle" fill="#98928a" font-size="10.5" >1, 10 and 100 crowd the left end; the same ×10 step is 9 units, then 90, then 900</text><text x="20" y="140" text-anchor="start" fill="#B5471E" font-size="10" font-weight="700" >LOGARITHMIC SCALE</text><line x1="60" y1="170" x2="720" y2="170" stroke="#161513" stroke-width="1.5"/><line x1="60" y1="162" x2="60" y2="178" stroke="#161513" stroke-width="1.5"/><text x="60" y="194" text-anchor="middle" fill="#161513" font-size="11" >1</text><path d="M90 150 Q 170 128 250 150" fill="none" stroke="#B5471E" stroke-width="1.4" marker-end="url(#ar11)"/><text x="170" y="124" text-anchor="middle" fill="#B5471E" font-size="11" font-weight="700" >×10</text><line x1="280" y1="162" x2="280" y2="178" stroke="#161513" stroke-width="1.5"/><text x="280" y="194" text-anchor="middle" fill="#161513" font-size="11" >10</text><path d="M310 150 Q 390 128 470 150" fill="none" stroke="#B5471E" stroke-width="1.4" marker-end="url(#ar11)"/><text x="390" y="124" text-anchor="middle" fill="#B5471E" font-size="11" font-weight="700" >×10</text><line x1="500" y1="162" x2="500" y2="178" stroke="#161513" stroke-width="1.5"/><text x="500" y="194" text-anchor="middle" fill="#161513" font-size="11" >100</text><path d="M530 150 Q 610 128 690 150" fill="none" stroke="#B5471E" stroke-width="1.4" marker-end="url(#ar11)"/><text x="610" y="124" text-anchor="middle" fill="#B5471E" font-size="11" font-weight="700" >×10</text><line x1="720" y1="162" x2="720" y2="178" stroke="#161513" stroke-width="1.5"/><text x="720" y="194" text-anchor="middle" fill="#161513" font-size="11" >1,000</text><text x="390" y="218" text-anchor="middle" fill="#98928a" font-size="10.5" >every ×10 is the same distance, so equal steps mean equal percentage changes</text></g></svg>
     </figure>
     <ul class="build">
-      <li class="step"><b>Equal distance, equal percentage.</b> On a log scale, going from 10 to 20 is the same step as going from 1,000 to 2,000: both are "doubled". That is why the swings on the previous slide became the same size.</li>
+      <li class="step"><b>Equal distances are equal percentages.</b> On a log scale, going from 10 to 20 is the same step as going from 1,000 to 2,000: both are "doubled". That is why the swings on the previous slide became the same size.</li>
       <li class="step"><b><code>log()</code> in R is the natural logarithm,</b> base <i>e</i>. The base only changes the ruler's units; the property is the same.</li>
       <li class="step"><b>A log straightens an exponential trend.</b> Growth of a constant percentage per year is a straight line on a log scale, which is the other reason to transform.</li>
     </ul>
@@ -503,11 +503,11 @@ body.ov-on #overview{display:block}
     <div class="console tight">w<sub>t</sub> = log(y<sub>t</sub>)                      if &lambda; = 0
 w<sub>t</sub> = (sign(y<sub>t</sub>) |y<sub>t</sub>|<sup>&lambda;</sup> &minus; 1) / &lambda;      otherwise</div>
     <ul class="build">
-      <li class="step"><b>One parameter, lambda, chooses the rung.</b> Lower lambda, stronger transformation. Lambda 1 shifts the series down by 1 and changes nothing else.</li>
+      <li class="step"><b>One parameter, lambda, chooses the rung.</b> The lower the lambda, the stronger the transformation. Lambda 1 shifts the series down by 1 and changes nothing else.</li>
       <li class="step"><b>The log is the zero rung</b> and the natural reference point: it is the only rung whose result you can still read in percentages.</li>
       <li class="step"><b>The "&minus;1 over lambda" part is bookkeeping.</b> It makes the family change smoothly as lambda passes through zero, so that lambda 0.05 and lambda 0 give almost the same picture.</li>
     </ul>
-    <p class="punch step wide">The dial has infinitely many positions. The next slide is how R picks one.</p>
+    <p class="punch step wide">The dial can be set anywhere between these marks, so the next slide shows how R chooses a setting.</p>
   </div>
   <aside class="notes">Variable versus parameter, from the notebook: <code>y_t</code> is the variable, the thing the function acts on; lambda is the parameter, fixed before the function is applied. Each value of lambda is a different member of the family.<br><br>Why the formula has <code>sign(y)</code> and <code>|y|</code>: it lets the power version of the transformation run on negative values. The log version still cannot, which is why the previous slide's patch exists. Transformations with lambda far below zero make the prediction intervals of Session 12 very wide; in practice lambda rarely sits below about 0.</aside>
 </section>
@@ -523,11 +523,11 @@ w<sub>t</sub> = (sign(y<sub>t</sub>) |y<sub>t</sub>|<sup>&lambda;</sup> &minus; 
     <div class="console tight">lambda &lt;- aus_production |&gt; features(Gas, features = guerrero) |&gt; pull(lambda_guerrero)
 <span class="dim"># 0.11</span></div>
     <ul class="build">
-      <li class="step"><b>The idea.</b> Cut the series into seasons. For each one, measure its level and its spread. Choose the lambda for which the spread is as unrelated to the level as possible.</li>
-      <li class="step"><b>The output is a suggestion, not a verdict.</b> For Australian gas it says 0.11: close to zero, so a plain log does almost the same job and keeps the units readable.</li>
-      <li class="step"><b>Always plot the result.</b> The number says the swings should be even now. The plot says whether they are.</li>
+      <li class="step"><b>The idea.</b> Cut the series into seasons, measure the level and the spread of each one, and choose the lambda for which the spread is as unrelated to the level as possible.</li>
+      <li class="step"><b>Treat the output as a suggestion and check it against the plot.</b> For Australian gas it says 0.11: close to zero, so a plain log does almost the same job and keeps the units readable.</li>
+      <li class="step"><b>Always plot the result.</b> The number tells you the swings ought to be even now, and only the plot shows whether they actually are.</li>
     </ul>
-    <p class="punch step wide">Lambda is the cheapest number you will compute this term, and the easiest one to over-trust.</p>
+    <p class="punch step wide">Guerrero's lambda is a helpful number, but it should not be trusted on its own.</p>
   </div>
   <aside class="notes">The method is from Guerrero (1993). It splits the series into blocks of one seasonal period, computes the mean and the standard deviation of each block, and chooses the lambda that makes the ratio of standard deviation to mean, raised to a power that depends on lambda, as constant as possible across blocks. The picture on the slide is the intuition; the formula is not examined.<br><br><code>features()</code> is the same carrier as <code>ljung_box</code> in Session 9: one function, many features, each returning a row of numbers. <code>pull()</code> takes the one column you want out of that row.</aside>
 </section>
@@ -536,16 +536,16 @@ w<sub>t</sub> = (sign(y<sub>t</sub>) |y<sub>t</sub>|<sup>&lambda;</sup> &minus; 
   <div class="inner">
     <a class="nb" href="11_A_TS_BoxCox_Transformation.html#workflow" target="_blank" rel="noopener" title="Open the notebook at this section">11_A &rsaquo; Usual workflow</a>
     <p class="kicker">The decision &nbsp;&middot;&nbsp; three outcomes</p>
-    <h1 class="sowhat wide">Near 1, do nothing. Near 0, take the log. Otherwise Box&ndash;Cox. Then look.</h1>
+    <h1 class="sowhat wide">If lambda is near 1, do nothing; near 0, take the log; otherwise use Box&ndash;Cox, and then look at the result.</h1>
     <figure>
       <svg viewBox="0 0 760 190" role="img" aria-label="A flowchart. Compute lambda with the Guerrero feature, then a decision diamond, lambda close to: to one, no transformation, keep the units; to zero, take the log, readable as percentages; neither, apply Box-Cox with lambda, the full dial. All three branches lead to a final box: plot it, did it work?"><g font-family="SFMono-Regular,Menlo,monospace"><defs><marker id="ar8" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z" fill="#98928a"/></marker></defs><rect x="20" y="70" width="150" height="54" rx="5" fill="#FAF8F5" stroke="#1F3A4D" stroke-width="1.6"/><text x="95.0" y="95.0" text-anchor="middle" fill="#161513" font-size="11.5" font-weight="700" >compute &lambda;</text><text x="95.0" y="111.0" text-anchor="middle" fill="#6B665E" font-size="10.5" >features(y, guerrero)</text><line x1="170" y1="97" x2="215" y2="97" stroke="#98928a" stroke-width="1.4" marker-end="url(#ar8)"/><polygon points="290,60 365,97 290,134 215,97" fill="#EFEAE1" stroke="#1F3A4D" stroke-width="1.6"/><text x="290" y="93" text-anchor="middle" fill="#161513" font-size="11" font-weight="700" >&lambda; close</text><text x="290" y="107" text-anchor="middle" fill="#161513" font-size="11" font-weight="700" >to ...</text><path d="M365 97 Q 400 47 420 47" fill="none" stroke="#98928a" stroke-width="1.4" marker-end="url(#ar8)"/><text x="392" y="40" text-anchor="middle" fill="#98928a" font-size="10" >to 1</text><rect x="424" y="20" width="170" height="54" rx="5" fill="#FAF8F5" stroke="#1F3A4D" stroke-width="1.6"/><text x="509.0" y="45.0" text-anchor="middle" fill="#161513" font-size="11.5" font-weight="700" >no transformation</text><text x="509.0" y="61.0" text-anchor="middle" fill="#6B665E" font-size="10.5" >keep the units</text><path d="M365 97 Q 400 97 420 97" fill="none" stroke="#98928a" stroke-width="1.4" marker-end="url(#ar8)"/><text x="392" y="90" text-anchor="middle" fill="#98928a" font-size="10" >to 0</text><rect x="424" y="70" width="170" height="54" rx="5" fill="#FAF8F5" stroke="#B5471E" stroke-width="1.6"/><text x="509.0" y="95.0" text-anchor="middle" fill="#161513" font-size="11.5" font-weight="700" >log(y)</text><text x="509.0" y="111.0" text-anchor="middle" fill="#6B665E" font-size="10.5" >readable as percentages</text><path d="M365 97 Q 400 147 420 147" fill="none" stroke="#98928a" stroke-width="1.4" marker-end="url(#ar8)"/><text x="392" y="140" text-anchor="middle" fill="#98928a" font-size="10" >neither</text><rect x="424" y="120" width="170" height="54" rx="5" fill="#FAF8F5" stroke="#1F3A4D" stroke-width="1.6"/><text x="509.0" y="145.0" text-anchor="middle" fill="#161513" font-size="11.5" font-weight="700" >box_cox(y, &lambda;)</text><text x="509.0" y="161.0" text-anchor="middle" fill="#6B665E" font-size="10.5" >the full dial</text><line x1="594" y1="97" x2="630" y2="97" stroke="#98928a" stroke-width="1.4" marker-end="url(#ar8)"/><rect x="634" y="70" width="110" height="54" rx="5" fill="#B5471E" stroke="#B5471E" stroke-width="1.6"/><text x="689.0" y="95.0" text-anchor="middle" fill="#FAF8F5" font-size="11.5" font-weight="700" >plot it</text><text x="689.0" y="111.0" text-anchor="middle" fill="#FAF8F5" font-size="10.5" >did it work?</text></g></svg>
     </figure>
     <ul class="build">
-      <li class="step"><b>Near 1 means not worth it.</b> The series would barely change and you would lose the ability to read the numbers.</li>
-      <li class="step"><b>Near 0 means take the log instead.</b> Same picture, and a log can be explained to anyone: changes become percentages.</li>
-      <li class="step"><b>In between, use the dial.</b> And in all three cases, the plot has the final say, not the number.</li>
+      <li class="step"><b>A lambda near 1 means the transformation is not worth it.</b> The series would barely change and you would lose the ability to read the numbers.</li>
+      <li class="step"><b>A lambda near 0 means you should take the log instead.</b> It gives nearly the same picture, and a log can be explained to anyone because changes become percentages.</li>
+      <li class="step"><b>In between, use the dial.</b> In all three cases, the final decision rests on the plot.</li>
     </ul>
-    <p class="punch step wide">Prefer the transformation you can explain. Interpretability is the tie-breaker every time.</p>
+    <p class="punch step wide">When two transformations do about equally well, prefer the one you can explain.</p>
   </div>
   <aside class="notes">"Close to" is a judgment, not a threshold. In the worked examples, 0.93 counts as close to 1 and both 0.08 and minus 0.04 count as close to 0, while 0.28 and 0.61 are in between. The final judge, as the notebook says, is the performance of the model fitted afterwards, which Sessions 13 and 14 measure.<br><br>The last box matters more than it looks. A transformation chosen by a number and never plotted is the most common way this goes wrong in homework, and the second example in the homework is built to catch it.</aside>
 </section>
@@ -561,9 +561,9 @@ w<sub>t</sub> = (sign(y<sub>t</sub>) |y<sub>t</sub>|<sup>&lambda;</sup> &minus; 
     <ul class="build">
       <li class="step"><b>Every rung of the dial makes the same assumption:</b> bigger level, bigger swings, in proportion. Shrink the big values and the big swings shrink with them.</li>
       <li class="step"><b>Canadian gas breaks it.</b> The swings are large in the middle years, at a middling level, and small at both ends. Shrinking the large values does nothing to the middle.</li>
-      <li class="step"><b>The tell is in the plot, not in lambda.</b> Guerrero will still return a number. The envelope of the series is not a funnel, so the number does not mean what it usually means.</li>
+      <li class="step"><b>You can only see this in the plot.</b> Guerrero will still return a number, but the envelope of the series is not a funnel, so the number does not mean what it usually means.</li>
     </ul>
-    <p class="punch step wide">A transformation treats one specific disease: spread proportional to level. Diagnose first.</p>
+    <p class="punch step wide">A transformation only helps when the spread is proportional to the level, so check that this is the problem before you apply one.</p>
   </div>
   <aside class="notes">What would help with Canadian gas is outside this course: a model whose seasonal component is allowed to change size over time, which is what STL's season window from Session 7 allows, or regression with time-varying effects in the follow-up course.<br><br>Two of the four worked examples in the notebook are versions of this caveat: tobacco, whose spread stays large when the level falls, and the bulls series, whose changing spread is not clearly multiplicative.</aside>
 </section>
@@ -572,7 +572,7 @@ w<sub>t</sub> = (sign(y<sub>t</sub>) |y<sub>t</sub>|<sup>&lambda;</sup> &minus; 
   <div class="inner">
     <a class="nb" href="11_A_TS_BoxCox_Transformation.html#examples" target="_blank" rel="noopener" title="Open the notebook at this section">11_A &rsaquo; Examples</a>
     <p class="kicker">Now we compute</p>
-    <h1 class="sowhat wide">Four series, one workflow, four different answers.</h1>
+    <h1 class="sowhat wide">The same workflow gives a different answer for each of four series.</h1>
     <table class="traps compact">
       <tr><td class="os">US GDP</td><td>Exponential trend, slope grows with the level</td><td class="fix">&lambda; &asymp; 0.28: Box&ndash;Cox straightens the trend; a log is too strong</td></tr>
       <tr><td class="os">Victorian bulls</td><td>Spread grows a little with the count, not clearly</td><td class="fix">&lambda; &asymp; &minus;0.04: a log, which achieves little here</td></tr>
@@ -581,8 +581,8 @@ w<sub>t</sub> = (sign(y<sub>t</sub>) |y<sub>t</sub>|<sup>&lambda;</sup> &minus; 
     </table>
     <ul class="build">
       <li class="step"><b>Same four steps each time:</b> plot, Guerrero, the three-way decision, plot again.</li>
-      <li class="step"><b>Only one of the four is a textbook success.</b> That is the honest ratio, and it is why the plot comes before and after the number.</li>
-      <li class="step"><b>The retail series comes back in Session 12</b> with a log in the model, and again in Session 13 with a test set. Keep it in mind.</li>
+      <li class="step"><b>Only one of the four is a textbook success.</b> That is typical of real data, and it is why the plot comes both before and after the number.</li>
+      <li class="step"><b>The retail series comes back in Session 12</b> with a log in the model, and again in Session 13 with a test set.</li>
     </ul>
     <p class="punch step wide">The notebook's answer sections for these four are open. Work through them in RStudio now; the homework is the two series that are not.</p>
   </div>
@@ -593,15 +593,15 @@ w<sub>t</sub> = (sign(y<sub>t</sub>) |y<sub>t</sub>|<sup>&lambda;</sup> &minus; 
   <div class="inner">
     <a class="nb" href="11_A_TS_BoxCox_Transformation.html#notes-on-transformations" target="_blank" rel="noopener" title="Open the notebook at this section">11_A &rsaquo; Some notes on transformations</a>
     <p class="kicker">What a transformation costs</p>
-    <h1 class="sowhat wide">Transform for the model's sake, never for its own.</h1>
+    <h1 class="sowhat wide">A transformation is only worth making if it helps the model.</h1>
     <div class="cards">
-      <div class="card terra"><h3>Interpretability</h3><p>A forecast of 4.2 log-dollars means nothing to anyone. A log keeps percentages readable; the rest of the dial keeps nothing.</p></div>
+      <div class="card terra"><h3>Interpretability</h3><p>A forecast of 4.2 log-dollars means nothing to anyone. A log at least keeps changes readable as percentages, which other values of lambda do not.</p></div>
       <div class="card"><h3>Prediction intervals</h3><p>Transformations change the intervals a lot, and a low lambda can make them enormous. Session 12 shows how they come back to the original scale, and why they stop being symmetric.</p></div>
       <div class="card sage"><h3>The way back</h3><p>Every transformed forecast must be undone to be useful. Declare the transformation inside the model, and <code>fable</code> undoes it for you. Session 12 again.</p></div>
       <div class="card"><h3>Often: nothing</h3><p>Many series forecast perfectly well untransformed. The default is to leave the data alone until the plot, or Session 9's residuals, say otherwise.</p></div>
     </div>
     <ul class="build" style="margin-top:1.4rem">
-      <li class="step"><b>The final judge is the model's performance</b> on data it has not seen, Sessions 13 and 14. The transformation is a means to that, not an end.</li>
+      <li class="step"><b>The final judge is the model's performance</b> on data it has not seen, which Sessions 13 and 14 measure.</li>
     </ul>
     <p class="punch step wide">A log you can explain beats a lambda you cannot, and no transformation beats both when the spread is already even.</p>
   </div>
@@ -630,8 +630,8 @@ w<sub>t</sub> = (sign(y<sub>t</sub>) |y<sub>t</sub>|<sup>&lambda;</sup> &minus; 
     <figure>
       <svg viewBox="0 0 760 120" role="img" aria-label="Three boxes in a row. Session 11, transform the series. Then fit an additive model on the transformed scale. Then Session 12, undo the transformation, with prediction intervals"><g font-family="SFMono-Regular,Menlo,monospace"><defs><marker id="ar13" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z" fill="#98928a"/></marker></defs><rect x="30" y="40" width="200" height="60" rx="5" fill="#B5471E" stroke="#B5471E" stroke-width="1.6"/><text x="130.0" y="68.0" text-anchor="middle" fill="#FAF8F5" font-size="11.5" font-weight="700" >Session 11</text><text x="130.0" y="84.0" text-anchor="middle" fill="#FAF8F5" font-size="10.5" >transform the series</text><line x1="230" y1="70" x2="275" y2="70" stroke="#98928a" stroke-width="1.4" marker-end="url(#ar13)"/><rect x="280" y="40" width="200" height="60" rx="5" fill="#FAF8F5" stroke="#1F3A4D" stroke-width="1.6"/><text x="380.0" y="68.0" text-anchor="middle" fill="#161513" font-size="11.5" font-weight="700" >fit an additive model</text><text x="380.0" y="84.0" text-anchor="middle" fill="#6B665E" font-size="10.5" >on the transformed scale</text><line x1="480" y1="70" x2="525" y2="70" stroke="#98928a" stroke-width="1.4" marker-end="url(#ar13)"/><rect x="530" y="40" width="200" height="60" rx="5" fill="#FAF8F5" stroke="#1F3A4D" stroke-width="1.6"/><text x="630.0" y="68.0" text-anchor="middle" fill="#161513" font-size="11.5" font-weight="700" >Session 12</text><text x="630.0" y="84.0" text-anchor="middle" fill="#6B665E" font-size="10.5" >undo it, with intervals</text></g></svg>
     </figure>
-    <p class="lead wide">A forecast on the log scale is useless until it is back in the original units. Session 12 builds prediction intervals from the residual standard deviation, checks them against <code>fable</code> by hand, and then back-transforms both the forecast and the interval. The interval stops being symmetric, and the point forecast stops being the mean. Both are features, not bugs.</p>
-    <p class="punch step wide">Today chose the scale. Next session says how sure you are, on any scale.</p>
+    <p class="lead wide">A forecast on the log scale is useless until it is back in the original units. Session 12 builds prediction intervals from the residual standard deviation, checks them against <code>fable</code> by hand, and then back-transforms both the forecast and the interval. The interval stops being symmetric, and the point forecast stops being the mean; both changes are expected, and the session shows where they come from.</p>
+    <p class="punch step wide">Today was about choosing the scale. Next session is about saying how uncertain a forecast is, whatever the scale.</p>
     <p class="url" style="font-size:clamp(0.95rem,1.7vw,1.9rem)">aberrizbeitia@faculty.ie.edu</p>
   </div>
   <aside class="notes">Session 12 is one of the three hardest topics of the course: a prediction interval as a distribution, not a formula. Session 9's properties 3 and 4 are what make the arithmetic hold, so re-read that summary sheet before it. If logarithmic scales are new to you, <code>11_B</code> is the reading.</aside>

@@ -430,9 +430,9 @@ body.ov-on #overview{display:block}
     <p class="kicker">Where we are &nbsp;&middot;&nbsp; the last content session</p>
     <h1 class="sowhat wide">Four sessions built six models by hand. Today they get names, a referee, and forecasts.</h1>
     <ul class="build">
-      <li class="step"><b>Names.</b> SES, Holt, damped Holt, Holt&ndash;Winters additive, multiplicative and damped: one family, ETS, with a three-letter name for each member.</li>
-      <li class="step"><b>A referee.</b> Maximum likelihood fits each one; AICc charges each for its parameters; <code>ETS()</code> picks the cheapest good fit on its own.</li>
-      <li class="step"><b>Forecasts.</b> Session 12&#39;s intervals, from the model the referee chose. That is fpp3 8.7, and the point of the whole block.</li>
+      <li class="step"><b>Each model gets a name.</b> SES, Holt, damped Holt, Holt&ndash;Winters additive, multiplicative and damped: one family, ETS, with a three-letter name for each member.</li>
+      <li class="step"><b>A referee chooses among them.</b> Maximum likelihood fits each one; AICc charges each for its parameters; <code>ETS()</code> picks the cheapest good fit on its own.</li>
+      <li class="step"><b>The chosen model forecasts.</b> It comes with Session 12&#39;s intervals, which is fpp3 8.7 and the point of the whole block.</li>
     </ul>
     <p class="punch step wide">After today, <code>ETS(y)</code> is one line of code you can explain letter by letter.</p>
   </div>
@@ -452,7 +452,7 @@ body.ov-on #overview{display:block}
       <li class="step"><b>The first letter, the error, makes the model:</b> A or M in front of each method. <code>ETS(A,A,N)</code> is Holt with additive errors.</li>
       <li class="step"><b>Read a name left to right:</b> <code>ETS(M,Ad,M)</code> is multiplicative errors, damped additive trend, multiplicative season: damped Holt&ndash;Winters, multiplicative.</li>
     </ul>
-    <p class="punch step wide">Name to letters, letters to name: both directions are a final-exam question.</p>
+    <p class="punch step wide">The final can ask in either direction, from a name to its letters or from the letters to the name.</p>
   </div>
   <aside class="notes">Multiplicative trends exist (<code>"M"</code> and <code>"Md"</code> in <code>fable</code>) but fpp3 leaves them out of the grid because they tend to forecast poorly. They are not examined.<br><br>The figure at the end of <code>19_A</code> gives the equations of every cell in state space form; you need the names, not the equations.</aside>
 </section>
@@ -466,11 +466,11 @@ body.ov-on #overview{display:block}
       <svg viewBox="0 0 760 192" role="img" aria-label="Two panels with the same rising forecast line. Left, additive errors: a band of constant width around the line. Right, multiplicative errors: a band that widens as the line rises, because the misses are a fixed percentage of the level"><g font-family="SFMono-Regular,Menlo,monospace"><line x1="40" y1="160" x2="360" y2="160" stroke="#98928a" stroke-width="1"/><line x1="40" y1="160" x2="40" y2="34" stroke="#98928a" stroke-width="1"/><text x="200" y="24" text-anchor="middle" fill="#6B665E" font-size="11" font-weight="700" >additive error: misses of the same size</text><polyline points="55.0,110.0 85.0,102.0 115.0,94.0 145.0,86.0 175.0,78.0 205.0,70.0 235.0,62.0 265.0,54.0 295.0,46.0 325.0,38.0" fill="none" stroke="#1F3A4D" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" opacity="1"/><polygon points="55.0,96.0 85.0,88.0 115.0,80.0 145.0,72.0 175.0,64.0 205.0,56.0 235.0,48.0 265.0,40.0 295.0,32.0 325.0,24.0 325.0,52.0 295.0,60.0 265.0,68.0 235.0,76.0 205.0,84.0 175.0,92.0 145.0,100.0 115.0,108.0 85.0,116.0 55.0,124.0" fill="#1F3A4D" opacity=".13"/><line x1="400" y1="160" x2="720" y2="160" stroke="#98928a" stroke-width="1"/><line x1="400" y1="160" x2="400" y2="34" stroke="#98928a" stroke-width="1"/><text x="560" y="24" text-anchor="middle" fill="#6B665E" font-size="11" font-weight="700" >multiplicative error: misses of the same percentage</text><polyline points="415.0,110.0 445.0,102.0 475.0,94.0 505.0,86.0 535.0,78.0 565.0,70.0 595.0,62.0 625.0,54.0 655.0,46.0 685.0,38.0" fill="none" stroke="#B5471E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" opacity="1"/><polygon points="415.0,101.0 445.0,91.6 475.0,82.1 505.0,72.7 535.0,63.2 565.0,53.8 595.0,44.4 625.0,34.9 655.0,25.5 685.0,16.0 685.0,60.0 655.0,66.5 625.0,73.1 595.0,79.6 565.0,86.2 535.0,92.8 505.0,99.3 475.0,105.9 445.0,112.4 415.0,119.0" fill="#B5471E" opacity=".13"/><text x="380" y="184" text-anchor="middle" fill="#98928a" font-size="11" >same point forecasts, different bands around them</text></g></svg>
     </figure>
     <ul class="build">
-      <li class="step"><b>Additive error:</b> the forecast misses by about the same amount whatever the level. A thermometer that is off by two degrees in winter and summer alike.</li>
-      <li class="step"><b>Multiplicative error:</b> it misses by about the same percentage. A sales forecast that is off by 5%, which is more units in a busy month.</li>
+      <li class="step"><b>Additive error:</b> the forecast misses by about the same amount whatever the level. Think of a thermometer that is off by two degrees in winter and summer alike.</li>
+      <li class="step"><b>Multiplicative error:</b> it misses by about the same percentage. A sales forecast that is off by 5% behaves like this, since 5% is more units in a busy month.</li>
       <li class="step"><b>The point forecasts are the same</b> for both, given the same parameters. The intervals are not, and neither is the likelihood, which is how the data choose between them.</li>
     </ul>
-    <p class="punch step wide">Nine methods, two error types: eighteen models. The referee chooses among them.</p>
+    <p class="punch step wide">Nine methods with two error types each give eighteen models, and the referee chooses among them.</p>
   </div>
   <aside class="notes">This is why Session 18 paired a multiplicative season with multiplicative errors: when the swings grow with the level, the misses usually do too.<br><br>Behind the scenes <code>fable</code> writes each model in state space form, where every equation is updated by the one-step error. That is also why its <code>beta</code> is &alpha;&beta;*, the point from Session 18.</aside>
 </section>
@@ -505,7 +505,7 @@ body.ov-on #overview{display:block}
 AICc = AIC + 2k(k + 1) / (T &minus; k &minus; 1)        <span class="dim">corrects for short series; what ETS() uses</span>
 BIC  = AIC + k [log(T) &minus; 2]          <span class="dim">charges more per parameter once T &ge; 8</span></div>
     <ul class="build">
-      <li class="step"><b>More parameters always fit the training data better,</b> so the first term alone would always choose the biggest model. The charge stops that: Session 18&#39;s elephant, priced.</li>
+      <li class="step"><b>More parameters always fit the training data better,</b> so the first term alone would always choose the biggest model. The charge stops that by putting a price on Session 18&#39;s elephant.</li>
       <li class="step"><b>Lower is better, for all three.</b> The numbers mean nothing on their own; only differences between models fitted to the same data do.</li>
       <li class="step"><b>By hand:</b> China&#39;s population model has 4 parameters and initial states plus the residual variance, so k = 5, and AIC = &minus;2 &times; log L + 10. The notebook checks it against <code>glance()</code>.</li>
     </ul>
@@ -518,7 +518,7 @@ BIC  = AIC + k [log(T) &minus; 2]          <span class="dim">charges more per pa
   <div class="inner">
     <a class="nb" href="19_B_ESmoothing_Model_Selection.html#ic-vs-cv" target="_blank" rel="noopener" title="Open the notebook at this section">19_B &rsaquo; Information criteria vs cross-validation</a>
     <p class="kicker">Two referees &nbsp;&middot;&nbsp; when each one is allowed on the pitch</p>
-    <h1 class="sowhat wide">AICc compares models of one class on one response. Anything else needs cross-validation.</h1>
+    <h1 class="sowhat wide">AICc compares models of one class on one response, and anything else needs cross-validation.</h1>
     <table class="traps compact">
       <tr><td class="os">Comparison</td><td><b>AICc?</b></td><td class="fix"><b>Cross-validation?</b></td></tr>
       <tr><td class="os">ETS(A,A,N) vs ETS(A,Ad,N), both on y</td><td>yes: same class, same response</td><td class="fix">yes</td></tr>
@@ -528,9 +528,9 @@ BIC  = AIC + k [log(T) &minus; 2]          <span class="dim">charges more per pa
     <ul class="build">
       <li class="step"><b>Why the restriction.</b> A likelihood is a probability density of one particular variable under one particular kind of model. Two likelihoods of different variables, or from different kinds of model, are not on the same scale.</li>
       <li class="step"><b>The trade-off.</b> AICc is free: one fit per model, and it uses the whole series. Cross-validation costs hundreds of fits, but it tests forecasts directly and compares anything with anything.</li>
-      <li class="step"><b>In practice:</b> let AICc choose within ETS, then let cross-validation judge the winner against the benchmarks. That is Group Assignment 2&#39;s design.</li>
+      <li class="step"><b>In practice:</b> let AICc choose within ETS, then let cross-validation judge the winner against the benchmarks. Group Assignment 2 is designed this way.</li>
     </ul>
-    <p class="punch step wide">One referee for the family, one for everything. Know which game you are refereeing.</p>
+    <p class="punch step wide">AICc referees within the ETS family and cross-validation can referee any comparison, so check which kind of comparison you are making.</p>
   </div>
   <aside class="notes">ARIMA is the model class of the follow-up course, Forecasting for Time Series; it appears here only as an example of "another class". The same AICc machinery chooses ARIMA orders there, within the ARIMA family.</aside>
 </section>
@@ -542,7 +542,7 @@ BIC  = AIC + k [log(T) &minus; 2]          <span class="dim">charges more per pa
     <h1 class="sowhat wide">Three combinations are off the menu, and multiplicative errors need positive data.</h1>
     <ul class="build">
       <li class="step"><b><code>ETS(A,N,M)</code>, <code>ETS(A,A,M)</code>, <code>ETS(A,Ad,M)</code> are excluded:</b> additive errors with a multiplicative season can divide by values close to zero and blow up. That leaves 15 of the 18 models for <code>ETS()</code> to choose from.</li>
-      <li class="step"><b>Multiplicative errors only for strictly positive series.</b> With zeros or negative values <code>ETS()</code> does not consider them at all.</li>
+      <li class="step"><b>Multiplicative errors are only for strictly positive series.</b> With zeros or negative values <code>ETS()</code> does not consider them at all.</li>
       <li class="step"><b>Zeros in a series that needs a log:</b> Session 11&#39;s <code>log1p()</code> is one way around, at the cost of a transformation to undo.</li>
     </ul>
     <p class="punch step wide">This is why Session 18 wrote <code>error("M")</code> next to every <code>season("M")</code>.</p>
@@ -580,9 +580,9 @@ fit |&gt; filter(Country == "China") |&gt; glance()      <span class="dim"># log
 aus_holidays |&gt; model(ETS(Trips))                    <span class="dim"># ETS(M,N,A)</span>
 <span class="dim">#  MNA  AICc 227.8      MNM  AICc 228.3      ANA  AICc 230.1</span></div>
     <ul class="build">
-      <li class="step"><b>263 countries, one model each, in one line.</b> One country has missing values, which <code>ETS()</code> refuses, so it warns and moves on.</li>
-      <li class="step"><b>China&#39;s AIC rebuilt by hand matches <code>glance()</code>:</b> slide 6&#39;s formula, live.</li>
-      <li class="step"><b>Holiday trips: a near tie.</b> M,N,A and M,N,M are about half a point apart, and measuring the series in thousands instead of millions flips the choice. When the referee cannot separate two models, either is defensible.</li>
+      <li class="step"><b>One line fits a separate model to each of 263 countries.</b> One country has missing values, which <code>ETS()</code> refuses, so it warns and moves on.</li>
+      <li class="step"><b>China&#39;s AIC rebuilt by hand matches <code>glance()</code>:</b> this is slide 6&#39;s formula applied to real output.</li>
+      <li class="step"><b>Holiday trips are a near tie.</b> M,N,A and M,N,M are about half a point apart, and measuring the series in thousands instead of millions flips the choice. When the referee cannot separate two models, either is defensible.</li>
     </ul>
     <p class="punch step wide">An automatic choice is a recommendation with a margin. Look at the margin before you trust the choice.</p>
   </div>
@@ -605,7 +605,7 @@ fit |&gt; forecast(h = 8) |&gt; hilo(level = 95)
       <li class="step"><b>The intervals depend on the error letter:</b> with multiplicative errors they widen with the level, as slide 4 drew.</li>
       <li class="step"><b>When there is no formula for the variance,</b> <code>forecast()</code> simulates thousands of future paths and takes their percentiles: Session 12&#39;s bootstrap idea, with simulated errors.</li>
     </ul>
-    <p class="punch step wide">Name it, fit it, check its residuals, compare it, forecast with a range. That sentence is the course.</p>
+    <p class="punch step wide">This is the last step of the workflow the block has followed: name the model, fit it, check its residuals, compare it, and forecast with a range.</p>
   </div>
   <aside class="notes">Before quoting these intervals, the Session 9 checks still apply: the residuals (<code>.innov</code>) should look like white noise with a stable spread. The chosen model is the best of the family by AICc; it is not automatically a good model.</aside>
 </section>
@@ -650,7 +650,7 @@ fit |&gt; forecast(h = 8) |&gt; hilo(level = 95)
   <div class="inner">
     <p class="kicker">What comes next</p>
     <h1 class="sowhat">That is the course. The final covers all of it.</h1>
-    <p class="lead wide">From a tsibble and a time plot in Session 2 to a model that names itself and forecasts with a range in Session 19. The follow-up course, Forecasting for Time Series, starts exactly here: it assumes ETS, the diagnostics, the metrics and cross-validation, and adds regression, ARIMA and more.</p>
+    <p class="lead wide">The course went from a tsibble and a time plot in Session 2 to a model that names itself and forecasts with a range in Session 19. The follow-up course, Forecasting for Time Series, starts exactly here: it assumes ETS, the diagnostics, the metrics and cross-validation, and adds regression, ARIMA and more.</p>
     <p class="punch step wide">Name it, fit it, check it, compare it, forecast with a range. You can now do every step, and explain why.</p>
     <p class="url" style="font-size:clamp(0.95rem,1.7vw,1.9rem)">aberrizbeitia@faculty.ie.edu</p>
   </div>
