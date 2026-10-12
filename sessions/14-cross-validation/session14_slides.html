@@ -502,7 +502,7 @@ body.ov-on #overview{display:block}
     <p class="kicker">Four rules, from the notebook</p>
     <h1 class="sowhat wide">Every split is a Session 13 exercise that obeys four rules.</h1>
     <table class="traps compact">
-      <tr><td class="os">Order</td><td>Every training observation comes before every test observation.</td><td class="fix">Never shuffle the rows.</td></tr>
+      <tr><td class="os">Order</td><td>Every training observation comes before every test observation.</td><td class="fix">No shuffling. Ever.</td></tr>
       <tr><td class="os">Growth</td><td>Training sets grow forward in time, one step (or a few) at a time.</td><td class="fix"><code>.step</code></td></tr>
       <tr><td class="os">Minimum size</td><td>The smallest training set is at least as long as the longest horizon, and preferably longer.</td><td class="fix"><code>.init</code> &ge; h</td></tr>
       <tr><td class="os">Same length</td><td>All test sets have the same length, so the errors are comparable across splits.</td><td class="fix"><code>forecast(h = ...)</code></td></tr>
