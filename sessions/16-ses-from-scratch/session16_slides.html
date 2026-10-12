@@ -428,13 +428,13 @@ body.ov-on #overview{display:block}
 <section class="slide" data-section="1" data-title="Where we are">
   <div class="inner">
     <p class="kicker">Where we are &nbsp;&middot;&nbsp; the verification half of "build it by hand"</p>
-    <h1 class="sowhat wide">The spreadsheet&#39;s two columns become two functions. A searcher turns the dial.</h1>
+    <h1 class="sowhat wide">The spreadsheet&#39;s two columns become two functions, and a searcher turns the dial.</h1>
     <ul class="build">
       <li class="step"><b>Session 15 gave you &alpha; and &#8467;<sub>0</sub> and asked for the table.</b> You filled the level column with the smoothing equation and the fitted-value column with the previous level, then added the squared errors.</li>
       <li class="step"><b>Today nobody gives you &alpha; and &#8467;<sub>0</sub>.</b> You write the table as a function of them, write the SSE as a function of them, and hand both to <code>optim()</code>, which tries values until the SSE stops falling.</li>
-      <li class="step"><b>Then you compare with <code>fable</code>.</b> Same &alpha;, same &#8467;<sub>0</sub>, to three decimals. After that, <code>ETS()</code> is a function whose insides you have seen.</li>
+      <li class="step"><b>Then you compare with <code>fable</code>.</b> You get the same &alpha; and &#8467;<sub>0</sub> to three decimals, and after that <code>ETS()</code> is a function whose insides you have seen.</li>
     </ul>
-    <p class="punch step wide">Anyone can call <code>ETS()</code>. After today you know what the call does, because you wrote it.</p>
+    <p class="punch step wide">After today you will know what a call to <code>ETS()</code> does, because you will have written the same computation yourself.</p>
   </div>
   <aside class="notes">This from-scratch-then-verify pattern is the signature of the course: classical decomposition in Session 7, the prediction interval in Session 12, the error metrics in Session 13, and now the fitting of a model. Group Assignment 2 asks for the same habit on share prices.<br><br>The method you write today is the one every later model in the block uses too. Holt and Holt&ndash;Winters have more parameters, but the loop is the same shape and <code>optim()</code> does not care how many numbers are in the vector.</aside>
 </section>
@@ -443,7 +443,7 @@ body.ov-on #overview{display:block}
   <div class="inner">
     <a class="nb" href="16_D_SES_ModelFitting.html#levels" target="_blank" rel="noopener" title="Open the notebook at this section">16_D &rsaquo; The outline</a>
     <p class="kicker">Session 15&#39;s flowchart &nbsp;&middot;&nbsp; with a function name on each box</p>
-    <h1 class="sowhat wide">Four boxes, three functions of yours, and one searcher from base R.</h1>
+    <h1 class="sowhat wide">The plan has four boxes: three functions that you write and one searcher from base R.</h1>
     <figure>
       <svg viewBox="0 0 760 176" role="img" aria-label="The fitting loop from Session 15 with a function name on each box: guess alpha and the initial level, done by optim; compute the fitted values, ses_levels; compute the SSE, SSE_func; smallest yet, decided by optim, which adjusts and goes round again. A dashed outline groups the middle two boxes as my_ses_sse, the composition of the two"><g font-family="SFMono-Regular,Menlo,monospace"><defs><marker id="ar3" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z" fill="#98928a"/></marker></defs><rect x="20" y="60" width="140" height="60" rx="5" fill="#FAF8F5" stroke="#B5471E" stroke-width="1.6"/><text x="90.0" y="87.0" text-anchor="middle" fill="#161513" font-size="11.5" font-weight="700" >1. guess &alpha;, &#8467;<tspan baseline-shift='sub' font-size='8'>0</tspan></text><text x="90.0" y="104.0" text-anchor="middle" fill="#6B665E" font-size="10" >optim()</text><line x1="160" y1="90" x2="195" y2="90" stroke="#98928a" stroke-width="1.4" marker-end="url(#ar3)"/><rect x="200" y="60" width="160" height="60" rx="5" fill="#FAF8F5" stroke="#1F3A4D" stroke-width="1.6"/><text x="280.0" y="87.0" text-anchor="middle" fill="#161513" font-size="11.5" font-weight="700" >2. fitted values</text><text x="280.0" y="104.0" text-anchor="middle" fill="#6B665E" font-size="10" >ses_levels()</text><line x1="360" y1="90" x2="395" y2="90" stroke="#98928a" stroke-width="1.4" marker-end="url(#ar3)"/><rect x="400" y="60" width="130" height="60" rx="5" fill="#FAF8F5" stroke="#1F3A4D" stroke-width="1.6"/><text x="465.0" y="87.0" text-anchor="middle" fill="#161513" font-size="11.5" font-weight="700" >3. SSE</text><text x="465.0" y="104.0" text-anchor="middle" fill="#6B665E" font-size="10" >SSE_func()</text><line x1="530" y1="90" x2="565" y2="90" stroke="#98928a" stroke-width="1.4" marker-end="url(#ar3)"/><rect x="570" y="60" width="170" height="60" rx="5" fill="#FAF8F5" stroke="#B5471E" stroke-width="1.6"/><text x="655.0" y="87.0" text-anchor="middle" fill="#161513" font-size="11.5" font-weight="700" >4. smallest yet?</text><text x="655.0" y="104.0" text-anchor="middle" fill="#6B665E" font-size="10" >optim()</text><path d="M655 120 L655 150 L90 150 L90 124" fill="none" stroke="#98928a" stroke-width="1.4" marker-end="url(#ar3)"/><text x="372" y="164" text-anchor="middle" fill="#98928a" font-size="10.5" >no: adjust and go round again</text><rect x="196" y="36" width="338" height="100" rx="6" fill="none" stroke="#6B7F5E" stroke-width="1.4" stroke-dasharray="5 4"/><text x="365" y="30" text-anchor="middle" fill="#6B7F5E" font-size="10.5" font-weight="700" >my_ses_sse(par, y): steps 2 and 3 composed</text></g></svg>
     </figure>
@@ -518,11 +518,11 @@ all.equal(levels_function, levels_test)                 <span class="hl"># TRUE<
 yhat_fvals &lt;- ses_levels(y, alpha, l_0)[1:length(y)]   <span class="dim"># drop the last element: it is the forecast</span>
 all.equal(1995.285, round(SSE_func(y, yhat_fvals), 3)) <span class="hl"># TRUE</span></div>
     <ul class="build">
-      <li class="step"><b>Residual, square, sum.</b> The same column as the spreadsheet, in two lines.</li>
+      <li class="step"><b>Compute the residuals, square them and add them up.</b> It is the same column as in the spreadsheet, written in two lines.</li>
       <li class="step"><b>The trap is the length.</b> <code>yhat</code> must be the first T elements of the levels vector, not all T + 1. The last level is the forecast, and there is no observation to subtract it from.</li>
       <li class="step"><b>1995.285 again,</b> the SSE from Session 15&#39;s table. The same number from code is the sign that both functions are right.</li>
     </ul>
-    <p class="punch step wide">This number is what the search will push down. Everything the searcher knows about the model is in it.</p>
+    <p class="punch step wide">The search will try to make this number as small as possible, and it is the only information about the model that the searcher has.</p>
   </div>
   <aside class="notes"><code>na.rm = TRUE</code> is a precaution: SES has no missing fitted values, but the same function will serve for models that do, such as a seasonal naive with its first season of NAs.<br><br>The check rounds to three decimals and uses <code>all.equal()</code> on the rounded value; it is informal but enough to catch a wrong loop.</aside>
 </section>
@@ -531,7 +531,7 @@ all.equal(1995.285, round(SSE_func(y, yhat_fvals), 3)) <span class="hl"># TRUE</
   <div class="inner">
     <a class="nb" href="16_D_SES_ModelFitting.html#compose" target="_blank" rel="noopener" title="Open the notebook at this section">16_D &rsaquo; 3. Function my_ses_sse</a>
     <p class="kicker">Now we code &nbsp;&middot;&nbsp; function 3 of 3</p>
-    <h1 class="sowhat wide"><code>optim()</code> talks to one function with one vector of parameters. Wrap yours to match.</h1>
+    <h1 class="sowhat wide"><code>optim()</code> talks to one function with one vector of parameters, so wrap yours to match.</h1>
     <div class="console tight">my_ses_sse &lt;- function(par, y) {
   alpha &lt;- par[1]                                   <span class="dim"># unwrap the parameter vector</span>
   l_0   &lt;- par[2]
@@ -542,11 +542,11 @@ all.equal(1995.285, round(SSE_func(y, yhat_fvals), 3)) <span class="hl"># TRUE</
 }
 all.equal(1995.285, round(my_ses_sse(c(alpha, l_0), y), 3))   <span class="hl"># TRUE</span></div>
     <ul class="build">
-      <li class="step"><b>Nothing new is computed.</b> Unwrap <code>par</code>, call the two functions, return the SSE. Composition.</li>
+      <li class="step"><b>Nothing new is computed.</b> The wrapper unwraps <code>par</code>, calls the two functions and returns the SSE, so it is pure composition.</li>
       <li class="step"><b>Why the parameters travel in one vector:</b> <code>optim()</code> adjusts a vector of numbers and nothing else. &alpha; and &#8467;<sub>0</sub> ride together in <code>par</code>; the series rides separately, as a further argument.</li>
       <li class="step"><b>The signature is the contract:</b> <code>f(par, ...)</code> in, one number out. Any function shaped like that can be minimized by <code>optim()</code>, whatever it computes.</li>
     </ul>
-    <p class="punch step wide">Three functions, three TRUEs. The model is written. What remains is the search.</p>
+    <p class="punch step wide">All three functions return TRUE, so the model is written and only the search remains.</p>
   </div>
   <aside class="notes">The order inside <code>par</code> is a convention you choose and then must keep: here <code>par[1]</code> is &alpha; and <code>par[2]</code> is &#8467;<sub>0</sub>, so the starting guesses and the output of <code>optim()</code> follow the same order.<br><br>Holt&#39;s method in Session 17 would use a <code>par</code> of four: &alpha;, &beta;*, &#8467;<sub>0</sub>, b<sub>0</sub>. Same wrapper, longer vector.</aside>
 </section>
@@ -572,7 +572,7 @@ all.equal(1995.285, round(my_ses_sse(c(alpha, l_0), y), 3))   <span class="hl">#
 <section class="slide" data-section="4" data-title="Reading the output">
   <div class="inner">
     <p class="kicker">Algerian exports &nbsp;&middot;&nbsp; the four fields of an <code>optim()</code> result</p>
-    <h1 class="sowhat wide">Three decimals of agreement is a match. The rest is the starting point and the algorithm.</h1>
+    <h1 class="sowhat wide">Three decimals of agreement is a match, and the rest comes from the starting point and the algorithm.</h1>
     <div class="console tight">opt &lt;- optim(par = c(0.1, algerian_exports$Exports[1]), fn = my_ses_sse, y = algerian_exports$Exports)
 
 <span class="dim">$par          0.8399  39.53      # alpha, then l_0: the order we chose for par
@@ -584,7 +584,7 @@ tidy(fit) |&gt; pull(estimate)    <span class="dim"># fable:  0.8400  39.54</spa
     <ul class="build">
       <li class="step"><b><code>par</code> is the answer,</b> in the order you defined. <code>value</code> is the SSE there. <code>counts</code> says how many steps the walk took. <code>convergence</code> of 0 is the only good value.</li>
       <li class="step"><b><code>fable</code> says 0.8400 and 39.54.</b> The difference is in the fourth decimal: a different starting point and a different algorithm reach almost, not exactly, the same bottom of the same valley.</li>
-      <li class="step"><b>That is the expected result,</b> and the notebook says why. An exact match would be the surprise.</li>
+      <li class="step"><b>This is the expected result,</b> and the notebook explains why; an exact match would be surprising.</li>
     </ul>
     <p class="punch step wide">You have reproduced what <code>ETS()</code> does, with fifteen lines of your own. Keep them; Session 17 only adds lines.</p>
   </div>
@@ -595,7 +595,7 @@ tidy(fit) |&gt; pull(estimate)    <span class="dim"># fable:  0.8400  39.54</spa
   <div class="inner">
     <a class="nb" href="16_D_SES_ModelFitting.html#argentina" target="_blank" rel="noopener" title="Open the notebook at this section">16_D &rsaquo; 5. Fitting SES to Argentinian exports</a>
     <p class="kicker">Now we compute &nbsp;&middot;&nbsp; a new series, the same fifteen lines</p>
-    <h1 class="sowhat wide">A new series costs nothing: the functions do not know which series they are on.</h1>
+    <h1 class="sowhat wide">Fitting a new series takes no extra work, because the functions do not know which series they are on.</h1>
     <div class="console tight">arg_exports &lt;- global_economy |&gt; filter(Country == "Argentina") |&gt; select(Year, Exports)
 
 opt &lt;- optim(par = c(0.1, arg_exports$Exports[1]), fn = my_ses_sse, y = arg_exports$Exports)
@@ -607,7 +607,7 @@ all.equal(tidy(fit) |&gt; pull(estimate), opt$par)    <span class="dim"># a smal
     <ul class="build">
       <li class="step"><b>&alpha; = 0.89:</b> Argentinian exports are jumpy too, so the forecast leans almost entirely on the last observation.</li>
       <li class="step"><b>&#8467;<sub>0</sub> = 7.41,</b> close to the first observation, as the starting guess assumed.</li>
-      <li class="step"><b><code>all.equal()</code> reports a tiny difference rather than TRUE.</b> That is the Session 16 result in one line: a numerical search, not a formula, so two searches agree closely and not exactly.</li>
+      <li class="step"><b><code>all.equal()</code> reports a tiny difference rather than TRUE.</b> This is the main result of Session 16: the fit comes from a numerical search rather than a formula, so two searches agree closely but not exactly.</li>
     </ul>
     <p class="punch step wide">This is the series of the homework. The fitted model is on your screen; the homework asks what you can say with it.</p>
   </div>
@@ -634,7 +634,7 @@ all.equal(tidy(fit) |&gt; pull(estimate), opt$par)    <span class="dim"># a smal
     <p class="kicker">What comes next</p>
     <h1 class="sowhat">Session 17 adds a trend, and releases Group Assignment 2.</h1>
     <p class="lead wide">Holt&#39;s method keeps the level equation and adds a second one for the slope, with its own smoothing parameter. The forecasts stop being flat. Then the damped version bends the trend toward flat again, which turns out to be one of the most successful forecasting methods there is. Group Assignment 2 asks you to compare the naive method against SES and damped Holt on share prices, with every tool from Sessions 9 to 14.</p>
-    <p class="punch step wide">Re-read Session 15&#39;s component form before Monday. Holt is that form plus one line.</p>
+    <p class="punch step wide">Re-read Session 15&#39;s component form before Monday, since Holt&#39;s method is that form with one more line.</p>
     <p class="url" style="font-size:clamp(0.95rem,1.7vw,1.9rem)">aberrizbeitia@faculty.ie.edu</p>
   </div>
   <aside class="notes">The Session 17 exercise compares the residuals of Holt and damped Holt with the tools of Session 9, including the QQ plot. Having the <code>09_A</code> summary sheet to hand will help.</aside>
