@@ -13,8 +13,8 @@ lesson was hiding.
 
 You do not need to review any of these:
 
-* **The decomposition itself.** Everyone ran the multiplicative classical decomposition of `Gas`
-  and plotted the seasonally adjusted series over the original.
+* **The decomposition itself.** Everyone ran the multiplicative classical decomposition of `Gas`,
+  and nearly everyone plotted the seasonally adjusted series over the original.
 * **The four benchmarks.** Everyone fitted all four in a single `model()` call, with correct
   syntax.
 * **The horizon.** Nobody forecast less than two full seasons.
@@ -26,7 +26,7 @@ You do not need to review any of these:
 
 ## 1. Reading the grey bars
 
-**What happened.** This was the biggest gap in HW07. About one in five of you read the bars
+**What happened.** This was the biggest gap in HW07. About one in six of you read the bars
 backwards, writing that a tall bar on the remainder panel means the remainder carries a lot of
 variation. About a third did not use the bars at all on the `labour` series, and several more
 gave a verdict on the variances without comparing anything.
@@ -53,7 +53,7 @@ panel's, the remainder moves more than the season does, and the first criterion 
 
 **What happened.** On `labour`, about a third of you tuned the STL windows by how the trend
 looked ("the trend reacted faster, so I kept it") or by the remainder getting smaller, without
-looking at the remainder's correlogram. On the daily electricity series, about a third never said
+looking at the remainder's correlogram. On the daily electricity series, about two in five never said
 that the decomposition cannot be fully fixed, which was the complete answer.
 
 **The two criteria from class, both every time:**
@@ -91,7 +91,7 @@ repository.
 
 **What happened.** For the outlier near the middle, fewer than half of you explained what happens
 to every component. About one in five described the effect as local ("a spike around that
-observation"), and a few wrote that the seasonal component cannot change because classical
+observation"), and one of you wrote that the seasonal component cannot change because classical
 decomposition assumes the season never changes.
 
 **That last one is worth a sentence.** "The season never changes" means the seasonal component
@@ -112,16 +112,19 @@ with the error built in.
    seasonally adjusted series **at every quarter of every year**, not only near the outlier.
 
 **Near the end.** Session 6 told you a 2x4-MA is missing at the last two observations. With 20
-quarters, that is observations 19 and 20. Put the outlier there and there is no trend, so no
-detrended value, so no remainder, and it never enters the seasonal averages. Its only trace is
-the last trend value that can be computed, whose window reaches it with weight 1/8. About half of
-you got this. The common slips:
+quarters, that is observations 19 and 20. Put the outlier there and it has no trend value of its
+own, so no detrended value and no remainder, and its own value never enters the seasonal
+averages. It still reaches the trend values that can be computed next to it: on observation 20,
+only observation 18, with weight 1/8; on observation 19, observations 17 and 18, with weights 1/8
+and 1/4. Those trend values move a little, their detrended values move with them, and the
+seasonal factor of those quarters shifts slightly (Q4 from about 0.93 to about 0.90). A small
+trace, nothing like the middle case. About half of you got this. The common slips:
 
 * **Outlier in the wrong place.** A few put it at observation 18, which still has a full window,
   so it behaves like the middle case.
 * **"It ends up in the remainder."** There is no remainder there: it is missing, like the trend.
-* **"Little changes, so the method copes."** It changes little because the method gave up on
-  that stretch of the series. It cannot even flag the outlier.
+* **A trap nobody fell into: "little changes, so the method copes."** It changes little because
+  the method gave up on that stretch of the series. It cannot even flag the outlier.
 
 **Your own output already said this.** Many of you had `Removed 8 rows containing missing values`
 in your output. That warning is the missing ends: two observations at each end with no trend and
@@ -166,7 +169,7 @@ season with seasonal naive, and combine them.
   "naive" while describing seasonal naive.
 
 **Endpoints matter.** Naive starts from the last observation, and drift draws its line from the
-first to the last. If the last observation is a seasonal low, both start from it. Two of you
+first to the last. If the last observation is a seasonal low, both start from it. Four of you
 noticed this on your own, which is exactly the kind of reading the sentence was after.
 
 **Not yet: which forecast is better.** A few of you called one method "the most accurate" or "the
@@ -181,7 +184,7 @@ together, say that none of the four benchmarks handles it.
 ## 5. Small code slips worth one look
 
 * **Add, do not replace.** `x[10] <- + 300` sets the value **to** 300; it does not add 300. Write
-  `x[10] <- x[10] + 300`. Two of you replaced the value instead of adding to it, so the outlier
+  `x[10] <- x[10] + 300`. One of you replaced the value instead of adding to it, so the outlier
   was not the size you thought, and the whole analysis rested on it.
 * **Turn the intervals off when comparing four forecasts.** Four overlapping fan charts hide the
   point forecasts. `autoplot(fc, data, level = NULL)` shows the lines only.
