@@ -135,6 +135,8 @@ kbd{
   text-transform:uppercase;color:var(--terra);font-weight:600;
 }
 .kicker.q{color:var(--muted)}
+/* labels set in capitals keep the case of math and code: h stays h, alpha stays alpha, optim() stays optim() */
+.nc,.kicker code,.card h3 code,.figrow p b code{text-transform:none}
 
 h1.sowhat{
   margin:0;font-family:var(--serif);font-weight:500;
@@ -625,11 +627,11 @@ all.equal(tidy(fit) |&gt; pull(estimate), opt$par)    <span class="dim"># a smal
     <ul class="build">
       <li><b><code>16_E</code>, parts 1 to 6, on Argentinian exports.</b> Time plot and whether SES suits it; the <code>ETS(A,N,N)</code> fit with forecasts and fitted values; &alpha; interpreted, and the weight on the three most recent observations.</li>
       <li><b>Then Session 12 by hand:</b> &sigma;&#770; with T &minus; K, checked against <code>parameters()</code>; the 95% interval for h = 1, compared with <code>hilo()</code> to two decimals.</li>
-      <li><b>K is 2</b> (&alpha; and &#8467;<sub>0</sub>), and the interval is for h = 1 only. <b>Part 7:</b> two sentences on why <code>optim()</code> and <code>fable</code> differ.</li>
+      <li><b>K is 2</b> (&alpha; and &#8467;<sub>0</sub>), and the interval is for h = 1 only. <b>Part 7:</b> two sentences on why <code>optim()</code> and <code>fable</code> differ. <b>Part 8:</b> the same chain on a calculator, from the first five residuals to &sigma;&#770; to an interval.</li>
     </ul>
     <p class="small">Every step was done in class, in Session 12 on Google and in Session 15 on Algeria. The exercise is to do them in one piece, alone.</p>
   </div>
-  <aside class="notes">Graded on completion and genuine effort as usual. The sentences carry weight: why SES suits the series, what &alpha; = 0.89 means, and whether your interval matches <code>fable</code>&#39;s.<br><br>The weights loop from Session 15 needs <code>rev()</code> to attach the largest weight to the most recent year; copying it without the reversal is the common slip.</aside>
+  <aside class="notes">The sentences matter: why SES suits the series, what &alpha; = 0.89 means, and whether your interval matches <code>fable</code>&#39;s.<br><br>The weights loop from Session 15 needs <code>rev()</code> to attach the largest weight to the most recent year; copying it without the reversal is the common slip.</aside>
 </section>
 
 <section class="slide" data-section="6" data-title="Next session">
