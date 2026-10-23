@@ -2,20 +2,30 @@
 
 **Date:** Monday, 26 October 2026, 9:00–10:20 — IE Tower, room T-05.02
 
+**Announcements:** this session's dates and deadlines are in [`announcements.md`](announcements.md).
+
 **[fpp3](https://otexts.com/fpp3/index.html):** 5.8
 
-**Focus:** Subsetting a series with `filter()` and `slice()` (including the negative-index idiom and
-the multi-key case); then errors — absolute vs relative; forecast errors vs residuals; MAE, RMSE,
-MAPE, sMAPE, MASE and RMSSE; two worked examples (beer, Google) on both training and test sets, and
-the manual recomputation of MAE and RMSE checked against `accuracy()`.
+**Slides:** [`session13_slides.html`](session13_slides.html). Notebooks: [`13_Train_Test`](13_Train_Test.html)
+(subsetting a series) and [`13_A_PointAccuracy`](13_A_PointAccuracy.html) (the metrics). Script:
+[`session13_code.R`](session13_code.R), both notebooks' R code in notebook order.
 
-**R:** `filter()`, `slice()`, `accuracy()`
+**Focus:** Why a model is judged on data it never saw; how much to hold back; building training and
+test sets with `filter()` and `slice()`, including the negative-index idiom and the multiple-key
+case; forecast errors versus residuals; absolute versus relative errors; MAE, RMSE, MAPE, and the
+scaled errors MASE and RMSSE; which metrics keep the units and which drop them; the beer and Google
+examples on training and test sets, and the manual recomputation of MAE and RMSE checked against
+`accuracy()`.
 
-**Homework:** `13_Train_Test` train/test exercises, plus the `13_A_PointAccuracy` manual computation of MAE and RMSE for
-the drift model on both sets.
+**R:** `filter()`, `slice()`, `n()`, `accuracy()`
 
-**Outcome:** Student sets up an honest train/test split and reads all six metrics, knowing which is
-scale-dependent and which is scaled.
+**Homework:** `13_Train_Test` Exercises 1 to 3; the `13_A` manual computation of MAE and RMSE for
+the seasonal naive model on both sets, then two percentage errors by hand and its test MAPE and
+MASE; `13_A` Exercise 1. Due date in the announcements.
 
-> This session covers *point* forecast accuracy. [fpp3](https://otexts.com/fpp3/index.html) 5.9, evaluating distributional forecast accuracy
-> (Winkler score, CRPS), belongs to the follow-up course, where comparing models is the central task.
+**Outcome:** Student sets up an honest train/test split and reads all the metrics `accuracy()`
+returns, knowing which are scale-dependent and which are not.
+
+> This session covers *point* forecast accuracy. [fpp3](https://otexts.com/fpp3/index.html) 5.9,
+> evaluating distributional forecast accuracy (Winkler score, CRPS), belongs to the follow-up course,
+> where comparing models is the central task.

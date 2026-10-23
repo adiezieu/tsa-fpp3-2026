@@ -362,6 +362,29 @@ body.ov-on #overview{display:block}
   .step{opacity:1 !important;transform:none !important}
   figure svg{max-height:32vh}
 }
+
+/* ---------------- Part 2 skin (Sessions 10 to 19) ----------------
+   After the midterm the rail inverts: dark slate instead of sand.
+   Every slide, type size and color on the stage is unchanged, so the
+   decks still read as one course; the rail says which half you are in. */
+
+#rail{background:var(--slate);border-right-color:#17303F}
+#rail .brand{border-bottom-color:rgba(250,248,245,.16)}
+#rail .brand b{color:var(--paper)}
+#rail .brand span{color:#B9C6D0}
+#toc li{color:#B9C6D0}
+#toc li .num{color:#7F93A3}
+#toc li:hover{color:var(--paper)}
+#toc li.on{color:var(--paper);border-left-color:#E8804F}
+#toc li.on .num{color:#E8804F}
+#toc li.done{color:#7F93A3}
+#toc li .live{background:var(--paper);opacity:.45}
+#rail .foot{border-top-color:rgba(250,248,245,.16)}
+#bar{background:rgba(250,248,245,.18)}
+#bar i{background:#E8804F}
+#rail .foot .keys{color:#9FB0BE}
+#rail kbd{background:#17303F;border-color:#35505F;color:#B9C6D0}
+@media print{#rail{display:none !important}}
 </style>
 </head>
 <body>
@@ -369,7 +392,7 @@ body.ov-on #overview{display:block}
 <nav id="rail">
   <div class="brand">
     <b>Time Series Analysis</b>
-    <span>Midterm revision</span>
+    <span>Midterm revision &middot; Part 2</span>
   </div>
   <ul id="toc"></ul>
   <div class="foot">
