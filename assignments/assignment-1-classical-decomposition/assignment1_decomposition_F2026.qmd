@@ -50,13 +50,15 @@ from the fpp3 library. Do it twice:
 ```{r}
 dcmp_additive <-
   liquor |>
-  # YOUR CODE GOES HERE
+  model(classical_decomposition(Turnover, type = "additive")) |>
+  components()
 
 dcmp_additive |> autoplot()
 
 dcmp_multiplicative <-
   liquor |>
-  # YOUR CODE GOES HERE
+  model(classical_decomposition(Turnover, type = "multiplicative")) |>
+  components()
 
 dcmp_multiplicative |> autoplot()
 ```
