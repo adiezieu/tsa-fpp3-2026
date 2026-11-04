@@ -8,6 +8,8 @@
 
 **Slides:** [`session14_slides.html`](session14_slides.html). Notebook: [`14_A`](14_A_TS_CrossValidation.html).
 Script: [`session14_code.R`](session14_code.R), the notebook's R code in notebook order.
+Reference, not taught in class: [`14_Toolbox_Reference.md`](14_Toolbox_Reference.md), the
+forecaster's toolbox of the first fourteen sessions on one page, step by step with its R functions.
 
 **Focus:** Why one train/test split is one draw; why the k-fold cross-validation of other courses is
 wrong for time series; the expanding-window splits, one-step, multi-step and multi-horizon;
@@ -18,7 +20,9 @@ Google example.
 **R:** `stretch_tsibble()`, `group_by()` + `mutate(h = row_number())` + `as_fable()`, `accuracy(..., by = ...)`
 
 **Homework:** the notebook's cross-validation exercise on beer production with the four benchmark
-methods, plus two sentences. Due date in the announcements.
+methods; a small cross-validation by hand on paper, as in the exam: the one-step naive and seasonal
+naive forecasts on the last eight quarters, with their MAE and RMSE, checked in R; and two
+sentences. Due date in the announcements.
 
 **Outcome:** Student runs a time series cross-validation and compares models by forecast horizon.
 
