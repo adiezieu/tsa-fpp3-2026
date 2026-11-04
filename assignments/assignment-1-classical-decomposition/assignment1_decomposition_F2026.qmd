@@ -61,6 +61,7 @@ dcmp_multiplicative <-
   components()
 
 dcmp_multiplicative |> autoplot()
+
 ```
 
 # Part 2
