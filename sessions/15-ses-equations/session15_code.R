@@ -20,7 +20,7 @@ fit <- algeria_economy |>
   model(ETS(Exports ~ error("A") + trend("N") + season("N")))
 
 ### 2. Computing the fitted values ----
-fitted_vals <- 
+fitted_vals <-
   fit |> augment() |> select(Year, Exports, .fitted)
 
 fitted_vals
@@ -35,22 +35,23 @@ alpha <- ses_params$estimate[1]
 
 weights <- vector("double")
 for (i in seq_len(nrow(fitted_vals))) {
-  # Weight of the observation i steps before the forecast origin
+  # Weight of the observation i - 1 periods before the forecast origin
   weights[[i]] <- alpha * (1 - alpha)^(i - 1)
 }
 
-# Add this column to the fitted values
+# Match newest-first weights to the table's oldest-first observations
 fitted_vals$weight = rev(weights)
 
-# Reverse the order of the dataframe to depict it more clearly
-fitted_vals <- 
+# Sort complete rows so the newest year appears first
+fitted_vals <-
   fitted_vals |> arrange(desc(Year))
 
 fitted_vals
 
-sum(fitted_vals$weight[1:3]) 
+sum(fitted_vals$weight[1:3])
 
 sum(fitted_vals$weight)
+sum(fitted_vals$weight) + (1 - alpha)^nrow(fitted_vals)
 
 ### 5. Computing forecasts ----
 # Generate 5 step forecasts

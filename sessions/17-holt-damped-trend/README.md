@@ -1,32 +1,15 @@
 # Session 17 — Holt's linear trend and damped trend
 
-**Date:** Monday, 23 November 2026, 9:00–10:20 — IE Tower, room T-05.02
+**Reading:** [fpp3 8.2](https://otexts.com/fpp3/exponential-smoothing.html#sec-holt).
 
-**Announcements:** this session's dates and deadlines are in [`announcements.md`](announcements.md).
+**Materials:** [Slides](session17_slides.html), [notebook](17_A_ESmoothing_Trended.html), [workbook](17_B_ExpSmoothing_Trended_students.xlsx), and [R script](session17_code.R).
 
-**[fpp3](https://otexts.com/fpp3/index.html):** 8.2
+**In class:** Add a slope to SES and interpret Holt's level and slope updates. Calculate a row with moderate alpha, then use a geometric sum to explain how damping flattens rising and falling paths. Fit Holt and damped Holt to Australian population. When comparing workbook parameters with `tidy()`, use `beta = alpha * beta-star`.
 
-**Slides:** [`session17_slides.html`](session17_slides.html). Notebook:
-[`17_A`](17_A_ESmoothing_Trended.html). Workbook for the homework:
-[`17_B`](17_B_ExpSmoothing_Trended_students.xlsx). Script: [`session17_code.R`](session17_code.R),
-the notebook's R code in notebook order.
+**R:** `ETS(y ~ error("A") + trend("A") + season("N"))`, `trend("Ad")`, `components()`, `augment()`, `tidy()`.
 
-**Focus:** Holt's method as SES plus a slope: the forecast, level and trend equations; reading each
-as a weighted average; the fitted values by hand from the two parameters and two initial values;
-what a large or small beta* does; forecasts that are a straight line in h. Then damped trend: the
-extra parameter phi, the full damped equations, the geometric sum that makes the forecasts flatten,
-and three ways to set phi in `ETS()`: fixed, bounded, estimated. The Australian population example,
-with `components()` and the fitted values rebuilt from them.
+**Homework:** Complete the Australian-population workbook, including its ten forecasts, and the notebook's [calculator update](17_A_ESmoothing_Trended.html#calculator). Complete Exercise 1 on internet usage: fit SES, Holt and damped Holt, compare residuals with Ljung–Box, and produce the two forecast plots. Add the sentence on damping and the [two-step damped forecast by hand](17_A_ESmoothing_Trended.html#damped-calculator). Submit on Blackboard; see [announcements](announcements.md) for this class's deadline.
 
-**R:** `ETS(y ~ error("A") + trend("A") + season("N"))`, `trend("Ad")`, `trend("Ad", phi = 0.9)`,
-`trend("Ad", phi_range = c(0.8, 0.95))`, `components()`, `augment()`
+Fixed phi, custom bounds and Exercise 2 on cross-validation are supporting practice.
 
-**Homework:** the `17_B` workbook (Holt by hand for Australian population), plus `17_A` Exercise 1
-(internet usage: SES, Holt and damped Holt, the residuals compared with a Ljung-Box test, the
-forecasts plotted) and one
-sentence on the damping, then one damped forecast at h = 2 by hand. Due date in the announcements.
-
-**Outcome:** Student fits Holt and damped Holt and reads alpha, beta* and phi.
-
-**→ Group Assignment 2 launches** — due **Sunday 6 December 2026, 23:59**. See
-[`assignments/`](../../assignments/).
+**Group Assignment 2:** The [Efficient Market Hypothesis assignment](../../assignments/) accompanies this session. See [announcements](announcements.md) for this class's release date and deadline.
